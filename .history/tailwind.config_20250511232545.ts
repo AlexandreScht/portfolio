@@ -11,12 +11,6 @@ export default {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
-      colors: {
-        muted: {
-          DEFAULT: '#6B7280',
-          foreground: '#374151',
-        },
-      },
     },
   },
   darkMode: 'class',

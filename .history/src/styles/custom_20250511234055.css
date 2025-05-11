@@ -94,3 +94,16 @@
   height: 1px;
   background: linear-gradient(to right, transparent, var(--color-border), transparent);
 }
+
+/* Styles de navigation */
+@media (max-width: 768px) {
+  .nav-links {
+    @apply fixed top-16 left-0 w-full bg-card-bg dark:bg-[rgba(19,31,56,0.95)] backdrop-blur-md p-4 flex-col items-center gap-4;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+  }
+}

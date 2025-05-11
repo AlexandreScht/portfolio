@@ -12,27 +12,27 @@ export default function HeaderBar() {
       <div className="flex items-center gap-8">
         <ul className="hidden md:flex list-none gap-8">
           <li>
-            <Link href="#about" className="nav-link underline-from-center">
+            <Link href="#about" className="nav-link">
               Compétences
             </Link>
           </li>
           <li>
-            <Link href="#skills" className="nav-link underline-from-center">
+            <Link href="#skills" className="nav-link">
               Projets
             </Link>
           </li>
           <li>
-            <Link href="#projects" className="nav-link underline-from-center">
+            <Link href="#projects" className="nav-link">
               Expérience
             </Link>
           </li>
           <li>
-            <Link href="#projects" className="nav-link underline-from-center">
+            <Link href="#projects" className="nav-link">
               Formation
             </Link>
           </li>
           <li>
-            <Link href="#contact" className="nav-link underline-from-center">
+            <Link href="#contact" className="nav-link">
               Contact
             </Link>
           </li>

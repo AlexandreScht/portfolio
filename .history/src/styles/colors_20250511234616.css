@@ -12,11 +12,7 @@
   --color-gradient-1: #4d94ff80;
   --color-gradient-2: #00ccff80;
   --color-gradient-3: #0052cc40;
-  --color-gradient-pattern:
-    radial-gradient(circle at 15% 25%, var(--gradient-1) 0%, transparent 55%),
-    radial-gradient(circle at 85% 75%, var(--gradient-2) 0%, transparent 65%),
-    radial-gradient(circle at 50% 50%, var(--gradient-3) 0%, transparent 70%);
-  --color-gradient-4: #66a3ff60;
+  --color-gradient-pattern: --color-gradient-4: #66a3ff60;
   --color-gradient-5: #0099ff40;
   --color-gradient-start: #e6f0ff;
   --color-gradient-end: #ffffff;

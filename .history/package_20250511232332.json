@@ -1,11 +1,10 @@
 {
   "name": "trading_stategy",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
-    "env": "tsx src/commands/validateNode.ts",
-    "reset": "tsx src/commands/resetNext.ts",
+    "env": "ts-node src/commands/validateNode.ts",
+    "reset": "ts-node src/commands/resetNext.ts",
     "dev": "npm run env && next dev --turbo",
     "build": "next build --turbopack",
     "start": "npm run env && next start",
@@ -54,7 +53,6 @@
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4",
     "ts-node": "^10.9.2",
-    "tsx": "^4.19.4",
     "typescript": "^5.4.4",
     "typescript-eslint": "^8.26.0"
   }
