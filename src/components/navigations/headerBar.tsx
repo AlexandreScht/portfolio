@@ -3,9 +3,9 @@ import ThemeSwitcher from '../buttons/theme';
 
 export default function HeaderBar() {
   return (
-    <nav className="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-card-bg backdrop-blur-md z-50 shadow-md border-b border-border dark:bg-[rgba(19,31,56,0.85)] dark:backdrop-blur-[15px] dark:shadow-[0_2px_15px_rgba(0,0,0,0.25)] dark:border-[rgba(70,160,255,0.1)]">
+    <nav className="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-card-bg backdrop-blur-md z-50 shadow-md border-b border-border">
       <>
-        <div className="text-2xl font-bold text-primary dark:text-white dark:font-bold dark:drop-shadow-[0_0_8px_rgba(0,0,0,0.15)]">Portfolio</div>
+        <div className="text-2xl font-bold text-primary dark:text-white">Portfolio</div>
         <ThemeSwitcher className="w-10 h-10 bg-secondary-v3 border border-secondary-v6 hover:bg-secondary-v4" />
       </>
 
