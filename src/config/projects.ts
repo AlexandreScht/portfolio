@@ -15,7 +15,15 @@ const projects = [
     ],
     skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Knex.js', 'Objection.js', 'TypeScript', 'Docker', 'Jest'],
     types: ['Application Web', 'sourcing B2B', 'IA'],
-    features: ["Utilisation de redis en cas de crash ou de redémarrage pour récupérer les données.", "Communication écurisée et rapide entre front, back et la BD avec un système de cache.", "Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.", "Recherche multi-critères alimentée par l’IA, pour un résultat à la fois rapide et pertinent.", "Bonnes pratiques et tests unitaires mis en place assurant la fiabilité du code.", "Déploiement automatisé et sécurisé avec Docker.", "Site responsive et conforme aux bonnes pratiques d’accessibilité. "],
+    features: [
+      'Utilisation de redis en cas de crash ou de redémarrage pour récupérer les données.',
+      'Communication écurisée et rapide entre front, back et la BD avec un système de cache.',
+      'Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.',
+      'Recherche multi-critères alimentée par l’IA, pour un résultat à la fois rapide et pertinent.',
+      'Bonnes pratiques et tests unitaires mis en place assurant la fiabilité du code.',
+      'Déploiement automatisé et sécurisé avec Docker.',
+      'Site responsive et conforme aux bonnes pratiques d’accessibilité. ',
+    ],
   },
   {
     title: 'Starter Template',
@@ -27,8 +35,20 @@ const projects = [
     picture: undefined,
     skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Kysely', 'TypeScript', 'Jest'],
     types: ['Template', 'Fullstack'],
-    features: ["Utilisation de redis comme mémoire temporaire.", "Communication écurisée et rapide entre front, back et la BD avec un système de cache.", "Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.", "Utilisation de Kysely comme ORM et Query builder pour communiquer avec la BD.", "Mise en place de tests unitaires et de bonne pratiques.", "WebSocket sécurisé pour la communication temps réel.", "Store global Zustand pour gérer l’état depuis n’importe quelle page"],
+    features: [
+      'Utilisation de redis comme mémoire temporaire.',
+      'Communication écurisée et rapide entre front, back et la BD avec un système de cache.',
+      'Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.',
+      'Utilisation de Kysely comme ORM et Query builder pour communiquer avec la BD.',
+      'Mise en place de tests unitaires et de bonne pratiques.',
+      'WebSocket sécurisé pour la communication temps réel.',
+      'Store global Zustand pour gérer l’état depuis n’importe quelle page',
+    ],
   },
+  // investiX
+  // permis
+  // invert color
+  // mini games
 ] as const satisfies Profile.project[];
 
 export default projects;

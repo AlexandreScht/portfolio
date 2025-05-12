@@ -69,59 +69,61 @@ export default function Home() {
       <AnimatedSection id="projects" className="separator">
         <h2 className="subtitle">Projets</h2>
         <article className="grid grid-cols-3 gap-x-14 gap-y-24 w-full justify-center px-32">
-          {projects.sort((a,b) => Number(b.date) - Number(a.date)).map(v => {
-            const LinkIcon = v.link?.icon;
-            return (
-              <Project
-                href={`/project/${v.title}`}
-                key={v.title}
-                className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
-              >
-                <div className="h-48 w-full bg-accent flex justify-center items-center overflow-hidden relative">
-                  {v?.picture?.length ? (
-                    <Image src={v.picture[0]} alt={`${v.title} project picture`} fill />
-                  ) : (
-                    <FiCameraOff className="w-16 h-16 text-default-text/75" />
-                  )}
-                </div>
-                <div className="px-6 pt-4 flex flex-col gap-3 flex-1 w-full bg-card-bg shadow-[inset_0_2px_0px_var(--color-shadow)]">
-                  <div className="flex justify-between items-center mb-1">
-                    <h3 className="text-xl font-semibold text-default-text m-0">{v.title}</h3>
-                    <span className="text-[0.85rem] text-default-text/75 pb-0.5 pt-1 px-2 rounded-[0.3rem] bg-border/20 dark:bg-border/30 font-semibold">
-                      {v.date}
-                    </span>
-                  </div>
-                  <p className="line-clamp-2 w-full text-[0.95rem] leading-[1.5] m-0">{v.resume}</p>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {v.skills.slice(0, 3).map((v, i) => (
-                      <div
-                        key={i}
-                        className="py-1 px-[0.6rem] rounded-[0.4rem] bg-accent text-primary text-[0.825rem] font-semibold shadow-[0_1px_1px_var(--color-shadow)]"
-                      >
-                        {v}
-                      </div>
-                    ))}
-                    {v.skills.length > 3 && (
-                      <div className="py-1 pl-[0.6rem] flex items-center pr-3 rounded-[0.4rem] bg-accent text-primary text-[0.825rem] font-semibold shadow-[0_1px_1px_var(--color-shadow)]">
-                        <p className="text-[1rem] leading-0 h-fit">+</p>
-                        {v.skills.length - 3}
-                      </div>
+          {projects
+            .sort((a, b) => Number(b.date) - Number(a.date))
+            .map(v => {
+              const LinkIcon = v.link?.icon;
+              return (
+                <Project
+                  href={`/project/${v.title}`}
+                  key={v.title}
+                  className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
+                >
+                  <div className="h-48 w-full bg-accent flex justify-center items-center overflow-hidden relative">
+                    {v?.picture?.length ? (
+                      <Image src={v.picture[0]} alt={`${v.title} project picture`} fill />
+                    ) : (
+                      <FiCameraOff className="w-16 h-16 text-default-text/75" />
                     )}
                   </div>
-                  {v?.link && (
-                    <Link href={v.link.url} target="_blank" rel="noopener noreferrer" className="mt-1.5">
-                      <Button
-                        className="m-auto px-4 py-[0.6rem] rounded-lg text-base bg-primary border-1 border-border/20 text-white w-full border-none hover:bg-secondary hover:border-primary"
-                        startContent={LinkIcon ? <LinkIcon className="mb-0.5" /> : undefined}
-                      >
-                        {v.link.label}
-                      </Button>
-                    </Link>
-                  )}
-                </div>
-              </Project>
-            );
-          })}
+                  <div className="px-6 pt-4 flex flex-col gap-3 flex-1 w-full bg-card-bg shadow-[inset_0_2px_0px_var(--color-shadow)]">
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-xl font-semibold text-default-text m-0">{v.title}</h3>
+                      <span className="text-[0.85rem] text-default-text/75 pb-0.5 pt-1 px-2 rounded-[0.3rem] bg-border/20 dark:bg-border/30 font-semibold">
+                        {v.date}
+                      </span>
+                    </div>
+                    <p className="line-clamp-2 w-full text-[0.95rem] leading-[1.5] m-0">{v.resume}</p>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {v.skills.slice(0, 3).map((v, i) => (
+                        <div
+                          key={i}
+                          className="py-1 px-[0.6rem] rounded-[0.4rem] bg-accent text-primary text-[0.825rem] font-semibold shadow-[0_1px_1px_var(--color-shadow)]"
+                        >
+                          {v}
+                        </div>
+                      ))}
+                      {v.skills.length > 3 && (
+                        <div className="py-1 pl-[0.6rem] flex items-center pr-3 rounded-[0.4rem] bg-accent text-primary text-[0.825rem] font-semibold shadow-[0_1px_1px_var(--color-shadow)]">
+                          <p className="text-[1rem] leading-0 h-fit xl:mt-0.5">+</p>
+                          {v.skills.length - 3}
+                        </div>
+                      )}
+                    </div>
+                    {v?.link && (
+                      <Link href={v.link.url} target="_blank" rel="noopener noreferrer" className="mt-1.5">
+                        <Button
+                          className="m-auto px-4 py-[0.6rem] rounded-lg text-base bg-primary border-1 border-border/20 text-white w-full border-none hover:bg-secondary hover:border-primary"
+                          startContent={LinkIcon ? <LinkIcon className="mb-0.5" /> : undefined}
+                        >
+                          {v.link.label}
+                        </Button>
+                      </Link>
+                    )}
+                  </div>
+                </Project>
+              );
+            })}
         </article>
       </AnimatedSection>
     </>

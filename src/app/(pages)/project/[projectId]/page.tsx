@@ -7,7 +7,9 @@ import { FiCameraOff } from 'react-icons/fi';
 
 export default async function Project({ params }: { params: Promise<{ projectId: string }> }) {
   const { projectId } = await params;
-  const project = projects.find(v => v.title === projectId);
+  console.log(projectId);
+
+  const project = projects.find(v => v.title === decodeURIComponent(projectId));
   const LinkIcon = project?.link?.icon;
   return (
     <div className="w-4/6 my-0 mx-auto py-10">
@@ -35,8 +37,8 @@ export default async function Project({ params }: { params: Promise<{ projectId:
               </div>
             ))
           ) : (
-            <div className="w-full aspect-square overflow-hidden bg-accent">
-              <FiCameraOff className="w-16 h-16 text-default-text/75 rounded-2xl" />
+            <div className="w-full flex items-center justify-center aspect-square overflow-hidden bg-accent">
+              <FiCameraOff className="w-42 h-42 text-default-text/75 rounded-2xl" />
             </div>
           )}
         </div>
