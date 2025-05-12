@@ -10,7 +10,7 @@ export default async function Project({ params }: { params: Promise<{ projectId:
   const project = projects.find(v => v.title === projectId);
   const LinkIcon = project?.link?.icon;
   return (
-    <div className="w-4/6 my-0 mx-auto py-10 px-8">
+    <div className="w-4/6 my-0 mx-auto py-10">
       <div className="mb-10">
         <Link
           href="/#projects"
@@ -60,9 +60,9 @@ export default async function Project({ params }: { params: Promise<{ projectId:
 
           <div>
             <h2 className="text-2xl mb-4 text-default-text font-medium text-left">Fonctionnalités</h2>
-            <ul className="pl-6 m-0">
+            <ul className="pl-6 m-0 list-disc">
               {project?.features.map(v => (
-                <li key={v} className="text-muted mb-3 leading-1.5 text-base">
+                <li key={v} className="text-muted mb-3 leading-7 text-base">
                   {v}
                 </li>
               ))}

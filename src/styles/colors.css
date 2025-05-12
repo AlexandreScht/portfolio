@@ -25,13 +25,13 @@
 
 .dark {
   --color-primary: #3b82f6;
-  --color-secondary: #60a5fa;
+  --color-secondary: #3285db;
   --color-default-text: #f8fafc;
   --color-muted: #cbd5e1;
   --color-default-bg: #0c1624;
   --color-accent: #141e32;
-  --color-card-bg: #131f38;
-  --color-card-hover: #1a2541;
+  --color-card-bg: #0e1a2e;
+  --color-card-hover: #142136;
   --color-border: rgba(248, 248, 248, 0.2);
   --color-shadow: rgba(0, 0, 0, 0.35);
   --color-gradient-1: #46a0ff15;

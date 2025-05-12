@@ -32,7 +32,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <HeaderBar />
               {children}
             </UiProviders>
-            <footer className="text-center p-8 bg-accent text-muted absolute bottom-0 w-full">
+            <footer className="text-center px-8 py-6 bg-accent text-muted absolute bottom-0 w-full">
               <p>&copy; 2025 Schecht Alexandre. Tous droits réservés.</p>
             </footer>
           </main>
