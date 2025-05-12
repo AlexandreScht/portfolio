@@ -13,9 +13,21 @@ const projects = [
       'https://framerusercontent.com/images/t0OQXdarLOXkzUsV7C11zPAJnys.jpg',
       'https://framerusercontent.com/images/URs6ni1mUB9QM5ZpirWZfynSKM.png',
     ],
-    skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Knex.js', 'Objection.js', 'TypeScript'],
+    skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Knex.js', 'Objection.js', 'TypeScript', 'Docker', 'Jest'],
     types: ['Application Web', 'sourcing B2B', 'IA'],
-    features: ["Utilisation de redis en cas de crash ou de redémarrage pour récupérer les données.", "Communication écurisée et rapide entre front, back et BD avec cache.", "Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.", "Recherche multi-critères alimentée par l’IA, pour un résultat à la fois rapide et pertinent.", "Bonnes pratiques et tests unitaires mis en place assurant la fiabilité du code.", "Déploiement automatisé et sécurisé avec Docker.", "Site responsive et conforme aux bonnes pratiques d’accessibilité. "],
+    features: ["Utilisation de redis en cas de crash ou de redémarrage pour récupérer les données.", "Communication écurisée et rapide entre front, back et la BD avec un système de cache.", "Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.", "Recherche multi-critères alimentée par l’IA, pour un résultat à la fois rapide et pertinent.", "Bonnes pratiques et tests unitaires mis en place assurant la fiabilité du code.", "Déploiement automatisé et sécurisé avec Docker.", "Site responsive et conforme aux bonnes pratiques d’accessibilité. "],
+  },
+  {
+    title: 'Starter Template',
+    date: '2025',
+    resume: 'Structure Next.js et Express.js fullstack optimisée et modulable',
+    description:
+      'Ce projet starter fullstack combine Next.js pour le front-end et Express.js pour le back-end, intégrant trois ans de bonnes pratiques et d’optimisations.\n Le projet propose une communication sécurisée et optimisée (cache client, WebSocket protégé, Redis pour le stockage temporaire), un store global Zustand, Kysely pour la BD et des tests unitaires assurant la qualité du code.',
+    link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/start_template' },
+    picture: undefined,
+    skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Kysely', 'TypeScript', 'Jest'],
+    types: ['Template', 'Fullstack'],
+    features: ["Utilisation de redis comme mémoire temporaire.", "Communication écurisée et rapide entre front, back et la BD avec un système de cache.", "Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.", "Utilisation de Kysely comme ORM et Query builder pour communiquer avec la BD.", "Mise en place de tests unitaires et de bonne pratiques.", "WebSocket sécurisé pour la communication temps réel.", "Store global Zustand pour gérer l’état depuis n’importe quelle page"],
   },
 ] as const satisfies Profile.project[];
 

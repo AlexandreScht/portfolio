@@ -14,7 +14,7 @@ export namespace Profile {
   export interface project {
     title: string;
     date: string;
-    resume?: string;
+    resume: string;
     description: string;
     link?: { icon?: IconType; label: string; url: string };
     picture?: [string, string?, string?];

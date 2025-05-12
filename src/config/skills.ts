@@ -6,7 +6,7 @@ import { FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaHtml5, FaLinux, FaNodeJs, 
 import { IoLogoFigma, IoLogoJavascript } from 'react-icons/io5';
 import { PiFileSql, PiNetworkSlashDuotone } from 'react-icons/pi';
 import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
-import { SiAxios, SiExpress, SiJira, SiKnexdotjs, SiMongodb, SiNuxtdotjs, SiPostman, SiTypescript } from 'react-icons/si';
+import { SiAxios, SiExpress, SiJest, SiJira, SiKnexdotjs, SiMongodb, SiNuxtdotjs, SiPostman, SiTypescript } from 'react-icons/si';
 import { TbBrandSocketIo } from 'react-icons/tb';
 
 export const categories = [
@@ -49,6 +49,7 @@ const skills = [
   { name: 'Jira/Trello', logo: SiJira, theme: ['Outils'] },
   { name: 'Figma', logo: IoLogoFigma, theme: ['Outils'] },
   { name: 'Git', logo: FaGitAlt, theme: ['Outils'] },
+  { name: 'Jest', logo: SiJest, theme: ['Outils'] },
 ] as const satisfies Profile.skill[];
 
 export default skills;

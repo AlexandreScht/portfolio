@@ -68,8 +68,8 @@ export default function Home() {
       </AnimatedSection>
       <AnimatedSection id="projects" className="separator">
         <h2 className="subtitle">Projets</h2>
-        <article className="grid grid-cols-3 gap-x-11 gap-y-24 w-full justify-center px-32">
-          {projects.map(v => {
+        <article className="grid grid-cols-3 gap-x-14 gap-y-24 w-full justify-center px-32">
+          {projects.sort((a,b) => Number(b.date) - Number(a.date)).map(v => {
             const LinkIcon = v.link?.icon;
             return (
               <Project
@@ -91,7 +91,7 @@ export default function Home() {
                       {v.date}
                     </span>
                   </div>
-                  <p className="line-clamp-2 w-full text-[0.95rem] leading-[1.5] m-0">{v.resume || v.description}</p>
+                  <p className="line-clamp-2 w-full text-[0.95rem] leading-[1.5] m-0">{v.resume}</p>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {v.skills.slice(0, 3).map((v, i) => (
                       <div
@@ -103,7 +103,7 @@ export default function Home() {
                     ))}
                     {v.skills.length > 3 && (
                       <div className="py-1 pl-[0.6rem] flex items-center pr-3 rounded-[0.4rem] bg-accent text-primary text-[0.825rem] font-semibold shadow-[0_1px_1px_var(--color-shadow)]">
-                        <p className="text-[1rem] leading-0 h-fit pt-0.5">+</p>
+                        <p className="text-[1rem] leading-0 h-fit">+</p>
                         {v.skills.length - 3}
                       </div>
                     )}
