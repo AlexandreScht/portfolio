@@ -5,6 +5,7 @@ import Project from '@/components/cards/project';
 import InteractiveImage from '@/components/interactives/picture';
 import { Switcher } from '@/components/interactives/switcher';
 import SkillList from '@/components/lists/skill';
+import { aboutMe, fullName, job } from '@/config/profile';
 import projects from '@/config/projects';
 import skills from '@/config/skills';
 import Image from 'next/image';
@@ -17,8 +18,8 @@ export default function Home() {
       <section id="home" className="min-h-screen separator flex items-center relative overflow-hidden home">
         <div className="relative z-10 flex items-center gap-16 max-w-6xl m-[0_auto]">
           <div className="flex-1">
-            <h1 className="text-[56px] font-bold mb-10 dark:text-default-text">Alexandre SCHECHT</h1>
-            <p className="text-2xl text-default-text dark:text-muted mb-8">Développeur Full Stack & Administrateur systémes et réseaux</p>
+            <h1 className="text-[56px] font-bold mb-10 dark:text-default-text">{fullName}</h1>
+            <p className="text-2xl text-default-text dark:text-muted mb-8">{job}</p>
             <Link
               href="#projects"
               className="inline-block p-[1rem_2rem] bg-primary text-white no-underline rounded-lg font-medium transition-colors duration-300 ease-in border-none cursor-pointer hover:bg-secondary"
@@ -33,12 +34,7 @@ export default function Home() {
       </section>
       <AnimatedSection id="about" className="separator">
         <h2 className="subtitle">À propos de moi</h2>
-        <p className="text-default-text dark:text-muted text-center text-xl px-20">
-          Bonjour, je suis Alexandre, développeur Full Stack et ingénieur Systèmes & Réseaux en devenir, passionné par l’innovation logicielle et la
-          résilience des infrastructures. J’allie la création d’applications web réactives (Node.js, Vue.js, Next.js) à la conception d’architectures
-          systèmes et réseaux sécurisées (Linux, Docker). Curieux et agile, j’interviens sur des projets B2B et B2C exigeant performance, scalabilité
-          et robustesse.
-        </p>
+        <p className="text-default-text dark:text-muted text-center text-xl px-20">{aboutMe}</p>
       </AnimatedSection>
       <AnimatedSection id="skills" className="separator px-20">
         <h2 className="subtitle">Mes Compétences</h2>

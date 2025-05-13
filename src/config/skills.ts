@@ -3,11 +3,12 @@ import { BiLogoPostgresql } from 'react-icons/bi';
 import { BsFiletypeScss } from 'react-icons/bs';
 import { DiRubyRough } from 'react-icons/di';
 import { FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaHtml5, FaLinux, FaNodeJs, FaPhp, FaPython, FaReact, FaVuejs } from 'react-icons/fa';
+import { IoLogoIonic } from 'react-icons/io';
 import { IoLogoFigma, IoLogoJavascript } from 'react-icons/io5';
 import { PiFileSql, PiNetworkSlashDuotone } from 'react-icons/pi';
 import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
 import { SiAxios, SiExpress, SiJest, SiJira, SiKnexdotjs, SiMongodb, SiNuxtdotjs, SiPostman, SiTypescript } from 'react-icons/si';
-import { TbBrandSocketIo } from 'react-icons/tb';
+import { TbBrandReactNative, TbBrandSocketIo } from 'react-icons/tb';
 
 export const categories = [
   'Langages de programmation',
@@ -33,8 +34,10 @@ const skills = [
   { name: 'Socket.io', logo: TbBrandSocketIo, theme: ['Backend & API'] },
   { name: 'ruby', logo: DiRubyRough, theme: ['Langages de programmation'] },
   { name: 'PHP', logo: FaPhp, theme: ['Langages de programmation'] },
+  { name: 'Ionic', logo: IoLogoIonic, theme: ['Frontend & UI'] },
   { name: 'Next.js', logo: RiNextjsFill, theme: ['Frontend & UI'] },
   { name: 'React', logo: FaReact, theme: ['Frontend & UI'] },
+  { name: 'React Native', logo: TbBrandReactNative, theme: ['Frontend & UI'] },
   { name: 'Node.js', logo: FaNodeJs, theme: ['Backend & API'] },
   { name: 'Vue.js', logo: FaVuejs, theme: ['Frontend & UI'] },
   { name: 'Nuxt.js', logo: SiNuxtdotjs, theme: ['Frontend & UI'] },

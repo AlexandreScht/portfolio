@@ -13,7 +13,20 @@ const projects = [
       'https://framerusercontent.com/images/t0OQXdarLOXkzUsV7C11zPAJnys.jpg',
       'https://framerusercontent.com/images/URs6ni1mUB9QM5ZpirWZfynSKM.png',
     ],
-    skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Knex.js', 'Objection.js', 'TypeScript', 'Docker', 'Jest'],
+    skills: [
+      'Next.js',
+      'Express.js',
+      'Node.js',
+      'Axios',
+      'Socket.io',
+      'PostgreSql',
+      'Tailwindcss',
+      'Knex.js',
+      'Objection.js',
+      'TypeScript',
+      'Docker',
+      'Jest',
+    ],
     types: ['Application Web', 'sourcing B2B', 'IA'],
     features: [
       'Utilisation de redis en cas de crash ou de redémarrage pour récupérer les données.',
@@ -33,7 +46,7 @@ const projects = [
       'Ce projet starter fullstack combine Next.js pour le front-end et Express.js pour le back-end, intégrant trois ans de bonnes pratiques et d’optimisations.\n Le projet propose une communication sécurisée et optimisée (cache client, WebSocket protégé, Redis pour le stockage temporaire), un store global Zustand, Kysely pour la BD et des tests unitaires assurant la qualité du code.',
     link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/start_template' },
     picture: undefined,
-    skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Kysely', 'TypeScript', 'Jest'],
+    skills: ['Next.js', 'Express.js', 'Node.js', 'Axios', 'Socket.io', 'PostgreSql', 'Kysely', 'TypeScript', 'Jest', 'Tailwindcss'],
     types: ['Template', 'Fullstack'],
     features: [
       'Utilisation de redis comme mémoire temporaire.',
@@ -45,10 +58,62 @@ const projects = [
       'Store global Zustand pour gérer l’état depuis n’importe quelle page',
     ],
   },
-  // investiX
-  // permis
-  // invert color
-  // mini games
+  {
+    title: 'InvestiX',
+    date: '2024',
+    resume: 'Application mobile pour automatiser et gérer ses investissements en crypto',
+    description:
+      'Ce projet consiste à créer une application mobile en React Native permettant d’automatiser et de gérer ses investissements en crypto-monnaies via les API sécurisées de brokers comme Binance ou Bitget. L’application offre diverses fonctionnalités pour suivre les performances (gains, pertes, risques) du portefeuille, avec une prise en charge des investissements en spot et en margin, y compris la gestion des positions en margin isolé. L’application permet aussi de définir une périodicité pour renouveler automatiquement ses placements, sans manipuler directement les fonds.',
+    link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/InvestiX' },
+    picture: undefined,
+    skills: ['React Native', 'Node.js', 'Axios', 'TypeScript'],
+    types: ['Application mobile', 'Crypto', 'Sécurité'],
+    features: [
+      'Application mobile développée en React Native.',
+      'Connexion sécurisée aux APIs de brokers cryptos.',
+      'Automatisation des investissements avec renouvellement périodique modulable.',
+      'Calcul local des risques, des gains/pertes et du prix de liquidation.',
+      'Rendu moderne et épuré en temps réel des performances de son wallet crypto',
+    ],
+  },
+  {
+    title: 'Permis',
+    date: '2023',
+    resume: 'Site statique de QCM sur les questions du permis',
+    description:
+      'Ce projet consiste en un site statique permettant de s’entraîner à l’examen du permis de conduire grâce à des QCM aléatoires basés sur les questions officielles. À la fin de chaque QCM, un bilan récapitule les erreurs et met en évidence les questions à revoir. Léger et rapide, le site fonctionne entièrement côté client, sans nécessiter de serveur.',
+    link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/permis' },
+    picture: undefined,
+    skills: ['Next.js', 'TypeScript', 'Tailwindcss'],
+    types: ['Site Static'],
+    features: [
+      'Chargement des questions depuis un fichier JSON local.',
+      'Génération aléatoire des questions du QCM.',
+      'Évaluation automatique d’un bilan de fin de test.',
+      'Fonctionnement 100% côté client',
+    ],
+  },
+  {
+    title: 'Mini Game',
+    date: '2022',
+    resume: 'Collection de mini-jeux web interactifs.',
+    description:
+      'Mini Game est un projet regroupant trois mini-jeux web conçus avec des technologies simples. Il inclut un jeu de puzzle glissant (Slide Game), un jeu de reconnaissance de couleurs (Couleur Game) et un jeu mathématique basé sur des opérations aléatoires (Mathematic Game). Chaque jeu propose une mécanique unique et fonctionne entièrement côté client, à l’exception du Couleur Game qui utilise du PHP pour générer dynamiquement l’interface.',
+    link: {
+      icon: FaGithub,
+      label: 'GitHub',
+      url: 'https://github.com/AlexandreScht/mini-game',
+    },
+    picture: undefined,
+    skills: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+    types: ['Jeu', 'Projet Web'],
+    features: [
+      'Slide Game : grille configurable, génération de chemins aléatoires, contrôle au clavier.',
+      'Couleur Game : interface générée en PHP, sélection de couleurs, animation en JavaScript.',
+      'Mathematic Game : opérations dynamiques, minuterie, vérification de résultats avec jQuery.',
+      'Fonctionnement majoritairement côté client, léger et facilement déployable.',
+    ],
+  },
 ] as const satisfies Profile.project[];
 
 export default projects;

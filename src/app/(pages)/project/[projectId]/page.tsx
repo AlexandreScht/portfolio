@@ -61,7 +61,7 @@ export default async function Project({ params }: { params: Promise<{ projectId:
           </div>
 
           <div>
-            <h2 className="text-2xl mb-4 text-default-text font-medium text-left">Fonctionnalités</h2>
+            <h2 className="text-2xl mb-4 text-default-text font-medium text-left">Fonctionnalités Techniques</h2>
             <ul className="pl-6 m-0 list-disc">
               {project?.features.map(v => (
                 <li key={v} className="text-muted mb-3 leading-7 text-base">
