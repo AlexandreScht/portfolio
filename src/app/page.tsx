@@ -2,6 +2,7 @@ import Button from '@/components/buttons';
 import Carousel from '@/components/cards/carousel';
 import AnimatedSection from '@/components/cards/frame';
 import Project from '@/components/cards/project';
+import ContactForm from '@/components/form/contact';
 import InteractiveImage from '@/components/interactives/picture';
 import { Switcher } from '@/components/interactives/switcher';
 import SkillList from '@/components/lists/skill';
@@ -121,6 +122,10 @@ export default function Home() {
               );
             })}
         </article>
+      </AnimatedSection>
+      <AnimatedSection id="contact" className="w-full max-w-4xl mx-auto px-4 my-24">
+        <h2 className="subtitle">Me Contacter</h2>
+        <ContactForm />
       </AnimatedSection>
     </>
   );
