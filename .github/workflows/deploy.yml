@@ -1,7 +1,9 @@
 name: Deploy Next.js to GitHub Pages
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,31 +16,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  setup-pages:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v3
+
+      - name: Enable GitHub Pages
+        uses: actions/configure-pages@v5
         with:
-          node-version: '18'
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v3
-        with:
+          enablement: true
           static_site_generator: next
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  build-and-deploy:
+    needs: setup-pages
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
+    steps:
       - name: Install dependencies
         run: npm ci
-      - name: Build with Next.js
+
+      - name: Build Next.js for static export
         run: npm run build
-      - name: Upload artifact
+
+      - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
