@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # version mise à jour
+        uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -32,7 +32,7 @@ jobs:
       - name: Build with Next.js
         run: npm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3 # v3 pour corriger l’erreur
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
@@ -41,4 +41,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4 # v4 requise par GitHub
+        uses: actions/deploy-pages@v4
