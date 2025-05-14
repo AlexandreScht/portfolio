@@ -14,29 +14,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  setup-pages:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Enable GitHub Pages
-        uses: actions/configure-pages@v5
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          enablement: true
+          node-version: '18'
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v3
+        with:
           static_site_generator: next
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-  build-and-deploy:
-    needs: setup-pages
-    runs-on: ubuntu-latest
-    steps:
       - name: Install dependencies
-        run: npm install
-      - name: Build Next.js
+        run: npm ci
+      - name: Build with Next.js
         run: npm run build
-      - name: Upload static files
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
