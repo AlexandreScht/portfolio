@@ -30,8 +30,6 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
-          # Si vous utilisez @v4 à la place, décommentez la ligne suivante :
-          # generator_config_file: ./next.config.mjs
 
       - name: Install dependencies
         run: npm ci

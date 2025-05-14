@@ -72,7 +72,7 @@ export default function Home() {
               const LinkIcon = v.link?.icon;
               return (
                 <Project
-                  href={`/project/${v.title}`}
+                  href={`/project/${v.title}`.toLowerCase()}
                   key={v.title}
                   className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
                 >
