@@ -3,6 +3,16 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -14,10 +24,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18 # Utilise Node.js 18+ pour ESM
+          node-version: 18
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5 # Configure l'environnement Pages (supporte .mjs)
+        uses: actions/configure-pages@v5
         with:
           static_site_generator: next
           # Si vous utilisez @v4 à la place, décommentez la ligne suivante :
@@ -30,9 +40,9 @@ jobs:
         run: npm run build --if-present -- --turbopack
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out # Dossier de sortie statique
+          path: ./out
 
   deploy:
     environment:
