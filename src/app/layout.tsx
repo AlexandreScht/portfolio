@@ -21,6 +21,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"
+          defer
+        ></script>
       </head>
       <body
         className="w-full font-sans bg-default-bg text-default-text transition-colors duration-300 ease-in-out min-h-screen relative pb-22"

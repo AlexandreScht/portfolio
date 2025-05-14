@@ -1,8 +1,7 @@
 @import 'tailwindcss';
 @config "../../tailwind.config.ts";
-
 @source "./safelist.txt";
-
+@import 'toastify-js/src/toastify.css';
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
