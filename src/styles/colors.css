@@ -22,8 +22,10 @@
   --color-gradient-end: #ffffff;
   --spacing-spacer: 5rem 2rem;
   --color-error: #dc2626;
-  --color-error-light: #fee2e2;
+  --color-error-toast: #dc2626;
   --color-error-border: #ef4444;
+  --color-success: #059669;
+  --color-success-border: #10b981;
 }
 
 .dark {
@@ -44,7 +46,9 @@
   --color-gradient-5: #162b4d25;
   --color-gradient-start: #081018;
   --color-gradient-end: #0e1624;
-  --color-error: #b92d2d;
-  --color-error-light: #7f1d1d;
-  --color-error-border: #dc2626;
+  --color-error: #ce2121;
+  --color-error-toast: #b11717;
+  --color-error-border: #910c0c;
+  --color-success: #1f795b;
+  --color-success-border: #059669;
 }

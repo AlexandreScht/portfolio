@@ -2,14 +2,21 @@ import Button from '@/components/buttons';
 import projects from '@/config/projects';
 import Image from 'next/image';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { FiCameraOff } from 'react-icons/fi';
 
-export default async function Project({ params }: { params: Promise<{ projectId: string }> }) {
-  const { projectId } = await params;
-  console.log(projectId);
+export async function generateStaticParams() {
+  return projects.map(proj => ({
+    projectId: proj.title.toString().toLowerCase(),
+  }));
+}
 
-  const project = projects.find(v => v.title === decodeURIComponent(projectId));
+export default async function Project({ params }: { params: { projectId: string } }) {
+  const project = projects.find(p => p.title === decodeURIComponent(params?.projectId));
+  if (!project) {
+    return notFound();
+  }
   const LinkIcon = project?.link?.icon;
   return (
     <div className="w-4/6 my-0 mx-auto py-10">

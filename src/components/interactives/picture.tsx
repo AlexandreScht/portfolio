@@ -3,9 +3,16 @@
 
 import { type Cards } from '@/interfaces/cards';
 import { cn } from '@heroui/react';
+import Image from 'next/image';
 import React, { useRef } from 'react';
 
-export default function InteractiveImage({ src, alt, zoomScale = 1.1, transitionDuration = 300, className }: Cards.InteractivePicture) {
+export default function InteractiveImage({
+  src,
+  alt = 'Interactive image',
+  zoomScale = 1.1,
+  transitionDuration = 300,
+  className,
+}: Cards.InteractivePicture) {
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -32,13 +39,19 @@ export default function InteractiveImage({ src, alt, zoomScale = 1.1, transition
   };
 
   return (
-    <div ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className={cn('overflow-hidden h-full w-full', className)}>
-      <img
+    <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={cn('overflow-hidden relative h-full w-full', className)}
+    >
+      <Image
         ref={imgRef}
         src={src}
         alt={alt}
         className="object-cover w-full h-full transition-transform"
         style={{ transitionDuration: `${transitionDuration}ms` }}
+        fill
       />
     </div>
   );

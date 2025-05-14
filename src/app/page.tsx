@@ -29,7 +29,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="profile-image w-72 h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)]">
-            <InteractiveImage src="/avatar.jpg" alt="profile picture" className="rounded-full" />
+            <InteractiveImage src="/portfolio/avatar.jpg" alt="profile picture" className="rounded-full" />
           </div>
         </div>
       </section>
@@ -125,7 +125,11 @@ export default function Home() {
       </AnimatedSection>
       <AnimatedSection id="contact" className="w-full max-w-4xl mx-auto px-4 my-24">
         <h2 className="subtitle">Me Contacter</h2>
-        <ContactForm />
+        <ContactForm
+          serviceId={process.env.EMAILJS_SERVICE_ID ?? ''}
+          templateId={process.env.EMAILJS_TEMPLATE_ID ?? ''}
+          publicKey={process.env.EMAILJS_PUBLIC_KEY ?? ''}
+        />
       </AnimatedSection>
     </>
   );
