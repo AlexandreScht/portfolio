@@ -42,7 +42,7 @@ export default [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
-      'prettier/prettier': ['error', { endOfLine: 'crlf' }],
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
       '@typescript-eslint/consistent-type-imports': [
         'warn',
         {
