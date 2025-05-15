@@ -27,7 +27,6 @@ export default function Carousel({ children, className, ...other }: Cards.Carous
       slidesPerView: 7,
       spaceBetween: 40,
       breakpoints: {},
-      grabCursor: true,
       ...other,
     }),
     [other],

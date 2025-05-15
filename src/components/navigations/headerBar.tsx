@@ -25,12 +25,12 @@ export default function HeaderBar() {
             </Link>
           </li>
           <li>
-            <Link href="/parcours/#experience" className="nav-link underline-from-center">
+            <Link href="/parcours/#experiences" className="nav-link underline-from-center">
               Expériences
             </Link>
           </li>
           <li>
-            <Link href="/parcours/#education" className="nav-link underline-from-center">
+            <Link href="/parcours/#educations" className="nav-link underline-from-center">
               Formations
             </Link>
           </li>

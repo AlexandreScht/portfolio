@@ -1,8 +1,8 @@
 import { type Profile } from '@/interfaces/profil';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { BsFiletypeScss } from 'react-icons/bs';
-import { DiRubyRough } from 'react-icons/di';
-import { FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaHtml5, FaLinux, FaNodeJs, FaPhp, FaPython, FaReact, FaVuejs } from 'react-icons/fa';
+import { DiRedis, DiRubyRough } from 'react-icons/di';
+import { FaCss3Alt, FaDatabase, FaDocker, FaGitAlt, FaHtml5, FaLinux, FaNodeJs, FaPhp, FaPython, FaReact, FaStripeS, FaVuejs } from 'react-icons/fa';
 import { IoLogoIonic } from 'react-icons/io';
 import { IoLogoFigma, IoLogoJavascript } from 'react-icons/io5';
 import { PiFileSql, PiNetworkSlashDuotone } from 'react-icons/pi';
@@ -45,6 +45,8 @@ const skills = [
   { name: 'SQL', logo: PiFileSql, theme: ['Bases de données'] },
   { name: 'MongoDB', logo: SiMongodb, theme: ['Bases de données'] },
   { name: 'PostgreSql', logo: BiLogoPostgresql, theme: ['Bases de données'] },
+  { name: 'Redis', logo: DiRedis, theme: ['Bases de données'] },
+  { name: 'Stripe', logo: FaStripeS, theme: ['Backend & API'] },
   { name: 'Knex.js', logo: SiKnexdotjs, theme: ['Backend & API'] },
   { name: 'Objection.js', logo: FaDatabase, theme: ['Backend & API'] },
   { name: 'Kysely', logo: FaDatabase, theme: ['Backend & API'] },

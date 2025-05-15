@@ -29,7 +29,11 @@ export default function Home() {
             </Link>
           </div>
           <div className="profile-image w-72 h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)]">
-            <InteractiveImage src={`${process.env.NODE_ENV !== "production" ? "" : "/portfolio/"}/avatar.jpg`} alt="profile picture" className="rounded-full" />
+            <InteractiveImage
+              src={`${process.env.NODE_ENV !== 'production' ? '' : '/portfolio/'}/avatar.jpg`}
+              alt="profile picture"
+              className="rounded-full"
+            />
           </div>
         </div>
       </section>
@@ -52,7 +56,7 @@ export default function Home() {
             {(skills?.length ?? 0) > 14 && (
               <Carousel className="w-full mt-5 py-1" speed={4000} autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}>
                 {skills.reverse().map(({ name, logo: Logo }) => (
-                  <div className="text-center p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60">
+                  <div className="text-center p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60 !cursor-grab">
                     <Logo className="text-5xl text-primary mb-4 mx-auto" />
                     <h3 className="text-xl">{name}</h3>
                   </div>

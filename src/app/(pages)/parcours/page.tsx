@@ -66,98 +66,172 @@ const experiences: Experience[] = [
   },
 ];
 
+const experience = {
+  certifications: [
+    'Certification Vue.js',
+    'Certification JavaScript',
+    'Certification Sass',
+    'Certification Jest',
+    'Certification Cypress',
+    'Certification Webpack',
+    'Certification Storybook',
+  ],
+};
 
 export default function ExperiencesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gradient-start to-gradient-end py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Cercles décoratifs pour l'arrière-plan */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none" style={{ background: 'var(--color-gradient-pattern)' }}></div>
-      
-      <AnimatedSection 
+      <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none" style={{ background: 'var(--color-gradient-pattern)' }} />
+
+      <AnimatedSection
+        id="experiences"
         motionProps={{
           initial: { opacity: 0, y: -20 },
           animate: { opacity: 1, y: 0 },
           transition: { duration: 0.8, ease: 'easeOut' },
         }}
-        className="max-w-5xl mx-auto relative z-10"
+        className="w-5xl mx-auto separator relative z-10"
       >
         <div className="text-center mb-20">
-          <h1 className="text-5xl font-bold text-default-text mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text">Mon Parcours Professionnel</h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto">Découvrez mes expériences et compétences en développement</p>
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary/95 bg-clip-text text-transparent">
+            Expériences Professionnelles
+          </h1>
+          <p className="text-xl text-muted mx-auto">Explorez mon parcours et mes réalisations professionnelles</p>
         </div>
 
         <div className="space-y-16">
           {experiences.map((experience, index) => (
             <AnimatedSection
-              key={index + 1}
-              motionProps={index === 0 ? undefined :{
-                initial: { opacity: 0, x: 100 },
-                whileInView: { opacity: 1, x: 0 },
-                transition: { duration: 0.8, ease: 'easeOut', delay: index * 0.2 },
-                viewport: { once: true, amount: 0.2 }
-              }}
-              className="bg-card-bg dark:bg-[#0f1c30] rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
+              key={index}
+              motionProps={
+                index === 0
+                  ? undefined
+                  : {
+                      initial: { opacity: 0, x: 100 },
+                      whileInView: { opacity: 1, x: 0 },
+                      transition: { duration: 0.8, ease: 'easeOut', delay: index * 0.2 },
+                      viewport: { once: true, amount: 0.2 },
+                    }
+              }
+              className="bg-card-bg rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
             >
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 mb-2">
-                  <div>
-                    <h2 className="text-2xl font-bold text-default-text bg-gradient-to-r from-primary to-secondary bg-clip-text">{experience.title}</h2>
-                    <h3 className="text-lg font-medium text-default-text dark:text-white mt-1">{experience.company}</h3>
-                  </div>
-                  <span className="text-primary font-medium px-4 py-1.5 bg-accent rounded-full inline-flex items-center justify-center shadow-md self-start">{experience.period}</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 mb-2">
+                <div>
+                  <h2 className="text-2xl font-bold text-default-text bg-gradient-to-r from-primary to-secondary bg-clip-text">{experience.title}</h2>
+                  <h3 className="text-lg font-medium text-default-text/90 h-fit w-fit mt-1">{experience.company}</h3>
+                </div>
+                <span className="text-primary font-medium px-4 py-1.5 bg-accent rounded-lg inline-flex items-center justify-center shadow-md self-start">
+                  {experience.period}
+                </span>
+              </div>
+
+              <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-6" />
+
+              <div className="mt-6 space-y-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-default-text mb-4 flex items-center">
+                    <span className="w-1.5 h-6 bg-primary rounded-full mr-2" />
+                    Responsabilités Principales
+                  </h4>
+                  <ul className="space-y-3 pl-2">
+                    {experience.description.map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-default-text">
+                        <span className="text-primary text-lg">•</span>
+                        <span className="text-muted">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-6"></div>
-
-                <div className="mt-6 space-y-8">
+                {experience.achievements && (
                   <div>
                     <h4 className="text-lg font-semibold text-default-text mb-4 flex items-center">
-                      <span className="w-1.5 h-6 bg-primary rounded-full mr-2"></span>
-                      Responsabilités Principales
+                      <span className="w-1.5 h-6 bg-primary rounded-full mr-2" />
+                      Réalisations Clés
                     </h4>
                     <ul className="space-y-3 pl-2">
-                      {experience.description.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-default-text">
-                          <span className="text-primary mt-1.5 text-lg">•</span>
+                      {experience.achievements.map((item, i) => (
+                        <li key={i} className="flex items-center gap-3 text-default-text">
+                          <span className="text-primary text-lg">•</span>
                           <span className="text-muted">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
+                )}
 
-                  {experience.achievements && (
-                    <div>
-                      <h4 className="text-lg font-semibold text-default-text mb-4 flex items-center">
-                        <span className="w-1.5 h-6 bg-primary rounded-full mr-2"></span>
-                        Réalisations Clés
-                      </h4>
-                      <ul className="space-y-3 pl-2">
-                        {experience.achievements.map((item, i) => (
-                          <li key={i} className="flex items-start gap-3 text-default-text">
-                            <span className="text-primary mt-1.5 text-lg">•</span>
-                            <span className="text-muted">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-default-text mb-4 flex items-center">
-                      <span className="w-1.5 h-6 bg-primary rounded-full mr-2"></span>
-                      Technologies Utilisées
-                    </h4>
-                    <div className="flex flex-wrap gap-2.5">
-                      {experience.technologies.map((tech, i) => (
-                        <span key={i} className="px-4 py-1.5 bg-accent text-primary dark:text-white rounded-full text-sm font-medium shadow-[0_2px_4px_var(--color-shadow)] hover:scale-105 transition-transform duration-300">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-default-text mb-4 flex items-center">
+                    <span className="w-1.5 h-6 bg-primary rounded-full mr-2" />
+                    Technologies Utilisées
+                  </h4>
+                  <div className="flex flex-wrap pt-1.5 gap-2.5">
+                    {experience.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-4 py-1.5 bg-accent text-primary rounded-lg text-sm font-medium shadow-[0_2px_4px_var(--color-shadow)] hover:scale-105 transition-transform duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-             
+              </div>
             </AnimatedSection>
           ))}
+        </div>
+      </AnimatedSection>
+      <AnimatedSection id="educations" className="mt-18">
+        <div className="text-center mb-20">
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary/95 bg-clip-text text-transparent">Formations</h1>
+          <p className="text-xl text-muted mx-auto">Découvrez mon parcours académique et mes certifications obtenues</p>
+        </div>
+        <div className="w-5xl mx-auto flex flex-col gap-16">
+          <AnimatedSection
+            motionProps={{
+              initial: { opacity: 0, x: 100 },
+              whileInView: { opacity: 1, x: 0 },
+              transition: { duration: 0.8, ease: 'easeOut' },
+              viewport: { once: true, amount: 0.2 },
+            }}
+            className="bg-card-bg rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
+          >
+            <div className="flex flex-col gap-6">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-xl font-semibold text-default-text mb-2">BTS SIO SLAM</h3>
+                  <div className="flex items-center gap-2 text-muted">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                      />
+                    </svg>
+                    <span>Lycée Chevrollier</span>
+                  </div>
+                </div>
+                <span className="px-4 py-1.5 bg-accent text-primary rounded-lg text-sm font-semibold shadow-[0_2px_4px_var(--color-shadow)]">
+                  2021 - 2023
+                </span>
+              </div>
+              <p className="text-muted leading-relaxed">
+                Formation en développement d'applications et solutions logicielles. Apprentissage des concepts fondamentaux de la programmation, des
+                bases de données et de la gestion de projets informatiques.
+              </p>
+              <h3 className="text-xl mt-2 leading-4 font-semibold text-default-text">Certifications</h3>
+              <div className="w-14 h-1 bg-primary rounded-full -mt-3"></div>
+              <ul className="space-y-3 pl-2">
+                {experience.certifications.map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-default-text">
+                    <span className="text-primary text-lg">•</span>
+                    <span className="text-muted">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </AnimatedSection>
         </div>
       </AnimatedSection>
     </div>
