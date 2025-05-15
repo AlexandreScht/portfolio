@@ -15,12 +15,12 @@ export default function HeaderBar() {
       <div className="flex items-center gap-8">
         <ul className="flex list-none h-full items-center gap-8">
           <li>
-            <Link href="#skills" className="nav-link underline-from-center">
+            <Link href="/#skills" className="nav-link underline-from-center">
               Compétences
             </Link>
           </li>
           <li>
-            <Link href="#projects" className="nav-link underline-from-center">
+            <Link href="/#projects" className="nav-link underline-from-center">
               Projets
             </Link>
           </li>
@@ -35,7 +35,7 @@ export default function HeaderBar() {
             </Link>
           </li>
           <li>
-            <Link href="#contact" className="nav-link underline-from-center">
+            <Link href="/#contact" className="nav-link underline-from-center">
               Contact
             </Link>
           </li>

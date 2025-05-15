@@ -13,7 +13,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Project({ params }: { params: { projectId: string } }) {
-  const project = projects.find(p => p.title === decodeURIComponent(params?.projectId));
+  // const decodedId = decodeURIComponent(params?.projectId).toLowerCase();
+  const project = projects.find(p => p.title.toLowerCase() === params?.projectId.toLowerCase());
   if (!project) {
     return notFound();
   }

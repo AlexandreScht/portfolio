@@ -29,7 +29,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="profile-image w-72 h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)]">
-            <InteractiveImage src="/portfolio/avatar.jpg" alt="profile picture" className="rounded-full" />
+            <InteractiveImage src={`${process.env.NODE_ENV !== "production" ? "" : "/portfolio/"}/avatar.jpg`} alt="profile picture" className="rounded-full" />
           </div>
         </div>
       </section>
@@ -72,9 +72,9 @@ export default function Home() {
               const LinkIcon = v.link?.icon;
               return (
                 <Project
-                  href={`/project/${v.title}`.toLowerCase()}
+                  href={`/project/${v.title.toLowerCase()}`}
                   key={v.title}
-                  className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
+                  className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col max-w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
                 >
                   <div className="h-48 w-full bg-accent flex justify-center items-center overflow-hidden relative">
                     {v?.picture?.length ? (

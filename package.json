@@ -4,11 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "env": "tsx src/commands/validateNode.ts",
     "reset": "tsx src/commands/resetNext.ts",
-    "dev": "npm run env && next dev --turbo",
+    "dev": "next dev --turbo",
     "build": "next build --turbopack",
-    "start": "npm run env && next start",
+    "start": "npx serve@latest out",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
