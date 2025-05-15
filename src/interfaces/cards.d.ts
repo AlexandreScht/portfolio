@@ -8,7 +8,7 @@ declare namespace Cards {
   }
   export interface SectionDisplay extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     className?: string;
-    motion?: HTMLMotionProps<'div'>;
+    motionProps?: HTMLMotionProps<'div'>;
   }
 
   export interface InteractivePicture {
