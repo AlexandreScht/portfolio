@@ -7,7 +7,7 @@ import { IoLogoIonic } from 'react-icons/io';
 import { IoLogoFigma, IoLogoJavascript } from 'react-icons/io5';
 import { PiFileSql, PiNetworkSlashDuotone } from 'react-icons/pi';
 import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
-import { SiAxios, SiExpress, SiJest, SiJira, SiKnexdotjs, SiMongodb, SiNuxtdotjs, SiPostman, SiTypescript } from 'react-icons/si';
+import { SiAxios, SiExpress, SiJest, SiJira, SiKnexdotjs, SiMongodb, SiNuxtdotjs, SiPhpmyadmin, SiPostman, SiTypescript } from 'react-icons/si';
 import { TbBrandReactNative, TbBrandSocketIo } from 'react-icons/tb';
 
 export const categories = [
@@ -32,11 +32,12 @@ const skills = [
   { name: 'Scss', logo: BsFiletypeScss, theme: ['Frontend & UI'] },
   { name: 'Axios', logo: SiAxios, theme: ['Backend & API'] },
   { name: 'Socket.io', logo: TbBrandSocketIo, theme: ['Backend & API'] },
-  { name: 'ruby', logo: DiRubyRough, theme: ['Langages de programmation'] },
+  { name: 'Ruby', logo: DiRubyRough, theme: ['Langages de programmation'] },
   { name: 'PHP', logo: FaPhp, theme: ['Langages de programmation'] },
   { name: 'Ionic', logo: IoLogoIonic, theme: ['Frontend & UI'] },
   { name: 'Next.js', logo: RiNextjsFill, theme: ['Frontend & UI'] },
   { name: 'React', logo: FaReact, theme: ['Frontend & UI'] },
+  { name: 'Ajax', logo: IoLogoJavascript, theme: ['Frontend & UI'] },
   { name: 'React Native', logo: TbBrandReactNative, theme: ['Frontend & UI'] },
   { name: 'Node.js', logo: FaNodeJs, theme: ['Backend & API'] },
   { name: 'Vue.js', logo: FaVuejs, theme: ['Frontend & UI'] },
@@ -45,6 +46,7 @@ const skills = [
   { name: 'SQL', logo: PiFileSql, theme: ['Bases de données'] },
   { name: 'MongoDB', logo: SiMongodb, theme: ['Bases de données'] },
   { name: 'PostgreSql', logo: BiLogoPostgresql, theme: ['Bases de données'] },
+  { name: 'PhpMyAdmin ', logo: SiPhpmyadmin, theme: ['Backend & API'] },
   { name: 'Redis', logo: DiRedis, theme: ['Bases de données'] },
   { name: 'Stripe', logo: FaStripeS, theme: ['Backend & API'] },
   { name: 'Knex.js', logo: SiKnexdotjs, theme: ['Backend & API'] },

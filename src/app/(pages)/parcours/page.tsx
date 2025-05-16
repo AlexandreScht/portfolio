@@ -1,88 +1,17 @@
 import AnimatedSection from '@/components/cards/frame';
-
-interface Experience {
-  title: string;
-  company: string;
-  period: string;
-  description: string[];
-  technologies: string[];
-  achievements?: string[];
-}
-
-const experiences: Experience[] = [
-  {
-    title: 'Développeur Full Stack Senior',
-    company: 'Entreprise A',
-    period: '2022 - Présent',
-    description: [
-      "Responsable du développement et de la maintenance d'applications web critiques pour l'entreprise, gérant une équipe de 4 développeurs",
-      "Conception et mise en place d'une architecture microservices robuste, améliorant les performances de 40% et réduisant les temps de déploiement de 60%",
-      'Implémentation de solutions de monitoring et de logging avancées pour une meilleure visibilité sur les performances et la stabilité des applications',
-      "Collaboration étroite avec les équipes produit et design pour définir les nouvelles fonctionnalités et améliorer l'expérience utilisateur",
-      'Mise en place de pratiques DevOps avec CI/CD automatisé, réduisant le temps de déploiement de 70%',
-    ],
-    achievements: [
-      'Réduction de 50% des temps de chargement des applications',
-      "Mise en place d'un système de tests automatisés couvrant 85% du code",
-      'Formation et mentorat de 3 développeurs juniors',
-    ],
-    technologies: ['React', 'Node.js', 'TypeScript', 'AWS', 'Docker', 'Kubernetes', 'MongoDB', 'Redis'],
-  },
-  {
-    title: 'Développeur Frontend Lead',
-    company: 'Entreprise B',
-    period: '2020 - 2022',
-    description: [
-      'Direction technique des projets frontend, assurant la qualité du code et les meilleures pratiques de développement',
-      "Refonte complète de l'interface utilisateur principale, améliorant l'engagement utilisateur de 35%",
-      "Développement d'une bibliothèque de composants réutilisables, accélérant le développement de 40%",
-      "Mise en place d'une architecture frontend moderne avec gestion d'état optimisée",
-      "Collaboration avec l'équipe UX/UI pour créer des interfaces intuitives et accessibles",
-    ],
-    achievements: [
-      'Augmentation de 45% de la satisfaction utilisateur',
-      'Réduction de 30% du temps de développement des nouvelles fonctionnalités',
-      "Mise en place d'un système de design system utilisé par toute l'entreprise",
-    ],
-    technologies: ['Vue.js', 'JavaScript', 'Sass', 'Jest', 'Cypress', 'Webpack', 'Storybook'],
-  },
-  {
-    title: 'Développeur Full Stack',
-    company: 'Startup C',
-    period: '2018 - 2020',
-    description: [
-      "Développement full-stack d'une plateforme SaaS de gestion de projets",
-      "Création d'une API RESTful robuste avec documentation Swagger",
-      'Implémentation de fonctionnalités de temps réel avec WebSocket',
-      'Optimisation des performances de la base de données et mise en place de stratégies de mise en cache',
-      'Intégration de services tiers (paiement, email, analytics)',
-    ],
-    achievements: [
-      'Lancement réussi de la plateforme avec 1000+ utilisateurs actifs',
-      "Mise en place d'un système de déploiement continu",
-      "Réduction de 60% des coûts d'infrastructure",
-    ],
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'Docker', 'AWS', 'Stripe API'],
-  },
-];
-
-const experience = {
-  certifications: [
-    'Certification Vue.js',
-    'Certification JavaScript',
-    'Certification Sass',
-    'Certification Jest',
-    'Certification Cypress',
-    'Certification Webpack',
-    'Certification Storybook',
-  ],
-};
+import { experiences } from '@/config/experiences';
+import { formations } from '@/config/formation';
+import { type Profile } from '@/interfaces/profil';
+import { sortByDate } from '@/utils/sortByDate';
+import { HiOutlineBuildingOffice } from 'react-icons/hi2';
+import { IoSchoolOutline } from 'react-icons/io5';
 
 export default function ExperiencesPage() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gradient-start to-gradient-end py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none" style={{ background: 'var(--color-gradient-pattern)' }} />
+  const sortedExperiences = sortByDate(experiences);
+  const sortedFormations = sortByDate(formations);
 
+  return (
+    <div className="bg-gradient-to-b from-gradient-start to-gradient-end py-20 px-20 overflow-hidden">
       <AnimatedSection
         id="experiences"
         motionProps={{
@@ -90,7 +19,7 @@ export default function ExperiencesPage() {
           animate: { opacity: 1, y: 0 },
           transition: { duration: 0.8, ease: 'easeOut' },
         }}
-        className="w-5xl mx-auto separator relative z-10"
+        className="w-3/5 mx-auto separator relative z-10 mb-18"
       >
         <div className="text-center mb-20">
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary/95 bg-clip-text text-transparent">
@@ -100,7 +29,7 @@ export default function ExperiencesPage() {
         </div>
 
         <div className="space-y-16">
-          {experiences.map((experience, index) => (
+          {sortedExperiences.map((experience, index) => (
             <AnimatedSection
               key={index}
               motionProps={
@@ -115,17 +44,21 @@ export default function ExperiencesPage() {
               }
               className="bg-card-bg rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
             >
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 mb-2">
+              <div className="flex flex-row justify-between gap-6 mb-2">
                 <div>
                   <h2 className="text-2xl font-bold text-default-text bg-gradient-to-r from-primary to-secondary bg-clip-text">{experience.title}</h2>
-                  <h3 className="text-lg font-medium text-default-text/90 h-fit w-fit mt-1">{experience.company}</h3>
+                  <div className="flex items-center gap-2 text-default-text/90 mt-1">
+                    <HiOutlineBuildingOffice className="w-5 h-5" />
+                    <h3 className="text-lg font-medium h-fit w-fit">{experience.company}</h3>
+                  </div>
                 </div>
                 <span className="text-primary font-medium px-4 py-1.5 bg-accent rounded-lg inline-flex items-center justify-center shadow-md self-start">
-                  {experience.period}
+                  {experience.startDate}
+                  {experience.endDate ? ` - ${experience.endDate}` : ''}
                 </span>
               </div>
 
-              <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-6" />
+              <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent my-6" />
 
               <div className="mt-6 space-y-8">
                 <div>
@@ -133,14 +66,7 @@ export default function ExperiencesPage() {
                     <span className="w-1.5 h-6 bg-primary rounded-full mr-2" />
                     Responsabilités Principales
                   </h4>
-                  <ul className="space-y-3 pl-2">
-                    {experience.description.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-default-text">
-                        <span className="text-primary text-lg">•</span>
-                        <span className="text-muted">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-muted pl-3 leading-7">{experience.description}</p>
                 </div>
 
                 {experience.achievements && (
@@ -166,7 +92,7 @@ export default function ExperiencesPage() {
                     Technologies Utilisées
                   </h4>
                   <div className="flex flex-wrap pt-1.5 gap-2.5">
-                    {experience.technologies.map((tech, i) => (
+                    {experience.skills.map((tech, i) => (
                       <span
                         key={i}
                         className="px-4 py-1.5 bg-accent text-primary rounded-lg text-sm font-medium shadow-[0_2px_4px_var(--color-shadow)] hover:scale-105 transition-transform duration-300"
@@ -181,57 +107,55 @@ export default function ExperiencesPage() {
           ))}
         </div>
       </AnimatedSection>
-      <AnimatedSection id="educations" className="mt-18">
+      <AnimatedSection id="educations" className="flex flex-col items-center">
         <div className="text-center mb-20">
           <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary/95 bg-clip-text text-transparent">Formations</h1>
           <p className="text-xl text-muted mx-auto">Découvrez mon parcours académique et mes certifications obtenues</p>
         </div>
-        <div className="w-5xl mx-auto flex flex-col gap-16">
-          <AnimatedSection
-            motionProps={{
-              initial: { opacity: 0, x: 100 },
-              whileInView: { opacity: 1, x: 0 },
-              transition: { duration: 0.8, ease: 'easeOut' },
-              viewport: { once: true, amount: 0.2 },
-            }}
-            className="bg-card-bg rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
-          >
-            <div className="flex flex-col gap-6">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-xl font-semibold text-default-text mb-2">BTS SIO SLAM</h3>
-                  <div className="flex items-center gap-2 text-muted">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                      />
-                    </svg>
-                    <span>Lycée Chevrollier</span>
+        <div className="w-3/5 flex flex-col gap-12 px-5">
+          {sortedFormations.map((formation: Profile.formation, index) => (
+            <AnimatedSection
+              key={index}
+              motionProps={{
+                initial: { opacity: 0, x: 100 },
+                whileInView: { opacity: 1, x: 0 },
+                transition: { duration: 0.8, ease: 'easeOut' },
+                viewport: { once: true, amount: 0.2 },
+              }}
+              className="bg-card-bg rounded-2xl px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
+            >
+              <div className="flex flex-col gap-6">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-semibold text-default-text mb-2">{formation.title}</h3>
+                    <div className="flex items-center gap-2 font-medium text-muted">
+                      <IoSchoolOutline className="w-5 h-5 mb-0.5" />
+                      <span>{formation.school}</span>
+                    </div>
                   </div>
+                  <span className="px-4 py-1.5 bg-accent text-primary rounded-lg text-sm font-semibold shadow-[0_2px_4px_var(--color-shadow)]">
+                    {formation.startDate}
+                    {formation.endDate ? ` - ${formation.endDate}` : ''}
+                  </span>
                 </div>
-                <span className="px-4 py-1.5 bg-accent text-primary rounded-lg text-sm font-semibold shadow-[0_2px_4px_var(--color-shadow)]">
-                  2021 - 2023
-                </span>
+                <p className="text-muted leading-relaxed">{formation.description}</p>
+                {formation?.certifications && (
+                  <>
+                    <h3 className="text-xl mt-2 leading-4 font-semibold text-default-text">Certifications</h3>
+                    <div className="w-10 h-1 bg-primary rounded-full -mt-3"></div>
+                    <ul className="space-y-3 pl-2">
+                      {formation.certifications.map((item, i) => (
+                        <li key={i} className="flex items-center gap-3 text-default-text">
+                          <span className="text-primary text-lg">•</span>
+                          <span className="text-muted">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
-              <p className="text-muted leading-relaxed">
-                Formation en développement d'applications et solutions logicielles. Apprentissage des concepts fondamentaux de la programmation, des
-                bases de données et de la gestion de projets informatiques.
-              </p>
-              <h3 className="text-xl mt-2 leading-4 font-semibold text-default-text">Certifications</h3>
-              <div className="w-14 h-1 bg-primary rounded-full -mt-3"></div>
-              <ul className="space-y-3 pl-2">
-                {experience.certifications.map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-default-text">
-                    <span className="text-primary text-lg">•</span>
-                    <span className="text-muted">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          ))}
         </div>
       </AnimatedSection>
     </div>
