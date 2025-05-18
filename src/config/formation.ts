@@ -7,7 +7,7 @@ export const formations = [
     startDate: '2025',
     endDate: 'Présent',
     description: "Formation d'Architecte de systèmes d’information",
-    // certification: []
+    // certifications: ['CISCO', 'AWS', 'AZURE', 'DOCKER', 'KUBERNETES'],
   },
   {
     title: "BACHELOR - Concepteur Développeur d'Applications",

@@ -17,10 +17,17 @@ export default function Home() {
   return (
     <>
       <section id="home" className="min-h-screen separator flex items-center relative overflow-hidden home">
-        <div className="relative z-10 flex items-center gap-16 max-w-6xl m-[0_auto]">
-          <div className="flex-1">
-            <h1 className="text-[56px] font-bold mb-10 dark:text-default-text">{fullName}</h1>
-            <p className="text-2xl text-default-text dark:text-muted mb-8">{job}</p>
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-6xl m-[0_auto] px-4 md:px-0 mt-16 md:mt-0">
+          <div className="profile-image w-56 h-56 md:w-72 md:h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)] order-1 md:order-2">
+            <InteractiveImage
+              src={`${process.env.NODE_ENV !== 'production' ? '' : '/portfolio/'}/avatar.jpg`}
+              alt="profile picture"
+              className="rounded-full"
+            />
+          </div>
+          <div className="flex-1 text-center md:text-left order-2 md:order-1">
+            <h1 className="text-[36px] md:text-[56px] font-bold mb-6 md:mb-10 dark:text-default-text">{fullName}</h1>
+            <p className="text-xl md:text-2xl text-default-text dark:text-muted mb-6 md:mb-8">{job}</p>
             <Link
               href="#projects"
               className="inline-block p-[1rem_2rem] bg-primary text-white no-underline rounded-lg font-medium transition-colors duration-300 ease-in border-none cursor-pointer hover:bg-secondary"
@@ -28,48 +35,41 @@ export default function Home() {
               Voir mes projets
             </Link>
           </div>
-          <div className="profile-image w-72 h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)]">
-            <InteractiveImage
-              src={`${process.env.NODE_ENV !== 'production' ? '' : '/portfolio/'}/avatar.jpg`}
-              alt="profile picture"
-              className="rounded-full"
-            />
-          </div>
         </div>
       </section>
       <AnimatedSection id="about" className="separator">
         <h2 className="subtitle">À propos de moi</h2>
-        <p className="text-default-text dark:text-muted text-center text-xl px-20">{aboutMe}</p>
+        <p className="text-default-text dark:text-muted text-center text-lg md:text-xl px-4 md:px-20">{aboutMe}</p>
       </AnimatedSection>
-      <AnimatedSection id="skills" className="separator px-20">
+      <AnimatedSection id="skills" className="separator px-4 md:px-20">
         <h2 className="subtitle">Mes Compétences</h2>
         <Switcher>
           <>
             <Carousel className="w-full py-1" speed={4000}>
               {skills.map(({ name, logo: Logo }) => (
-                <div className="text-center p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60">
-                  <Logo className="text-5xl text-primary mb-4 mx-auto" />
-                  <h3 className="text-xl">{name}</h3>
+                <div className="text-center p-4 md:p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60">
+                  <Logo className="text-4xl md:text-5xl text-primary mb-2 md:mb-4 mx-auto" />
+                  <h3 className="text-lg md:text-xl">{name}</h3>
                 </div>
               ))}
             </Carousel>
             {(skills?.length ?? 0) > 14 && (
               <Carousel className="w-full mt-5 py-1" speed={4000} autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}>
                 {skills.reverse().map(({ name, logo: Logo }) => (
-                  <div className="text-center p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60 !cursor-grab">
-                    <Logo className="text-5xl text-primary mb-4 mx-auto" />
-                    <h3 className="text-xl">{name}</h3>
+                  <div className="text-center p-4 md:p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60 !cursor-grab">
+                    <Logo className="text-4xl md:text-5xl text-primary mb-2 md:mb-4 mx-auto" />
+                    <h3 className="text-lg md:text-xl">{name}</h3>
                   </div>
                 ))}
               </Carousel>
             )}
           </>
-          <SkillList className="px-40" />
+          <SkillList className="px-4 md:px-40" />
         </Switcher>
       </AnimatedSection>
       <AnimatedSection id="projects" className="separator">
         <h2 className="subtitle">Projets</h2>
-        <article className="grid grid-cols-3 gap-x-14 gap-y-24 w-full justify-center px-32">
+        <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 md:gap-x-14 gap-y-12 md:gap-y-24 w-full justify-center px-1 sm:px-8 md:px-32">
           {projects
             .sort((a, b) => Number(b.date) - Number(a.date))
             .map(v => {
@@ -78,7 +78,7 @@ export default function Home() {
                 <Project
                   href={`/project/${v.title.toLowerCase()}`}
                   key={v.title}
-                  className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col max-w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
+                  className="rounded-2xl overflow-hidden shadow-[0_3px_10px_var(--color-shadow)] hover:shadow-[0_8px_20px_var(--color-shadow)] border-1 border-border/80 transition-all duration-300 ease-in flex flex-col max-w-full md:max-w-96 h-[424px] m-[0_auto] hover:-translate-y-2 cursor-pointer hover:border-primary"
                 >
                   <div className="h-48 w-full bg-accent flex justify-center items-center overflow-hidden relative">
                     {v?.picture?.length ? (
@@ -87,7 +87,7 @@ export default function Home() {
                       <FiCameraOff className="w-16 h-16 text-default-text/75" />
                     )}
                   </div>
-                  <div className="px-6 pt-4 flex flex-col gap-3 flex-1 w-full bg-card-bg shadow-[inset_0_2px_0px_var(--color-shadow)]">
+                  <div className="px-6 pt-4 pb-4 flex flex-col gap-3 flex-1 w-full bg-card-bg shadow-[inset_0_2px_0px_var(--color-shadow)]">
                     <div className="flex justify-between items-center mb-1">
                       <h3 className="text-xl font-semibold text-default-text m-0">{v.title}</h3>
                       <span className="text-[0.85rem] text-default-text/75 pb-0.5 pt-1 px-2 rounded-[0.3rem] bg-border/20 dark:bg-border/30 font-semibold">
@@ -112,7 +112,7 @@ export default function Home() {
                       )}
                     </div>
                     {v?.link && (
-                      <Link href={v.link.url} target="_blank" rel="noopener noreferrer" className="mt-1.5">
+                      <Link href={v.link.url} target="_blank" rel="noopener noreferrer" className="mt-auto">
                         <Button
                           className="m-auto px-4 py-[0.6rem] rounded-lg text-base bg-primary border-1 border-border/20 text-white w-full border-none hover:bg-secondary hover:border-primary"
                           startContent={LinkIcon ? <LinkIcon className="mb-0.5" /> : undefined}
@@ -127,7 +127,7 @@ export default function Home() {
             })}
         </article>
       </AnimatedSection>
-      <AnimatedSection id="contact" className="w-full max-w-4xl mx-auto px-4 my-24">
+      <AnimatedSection id="contact" className="w-full md:w-[45%] mx-auto px-8 sm:px-4 my-12 md:my-24">
         <h2 className="subtitle">Me Contacter</h2>
         <ContactForm
           serviceId={process.env.EMAILJS_SERVICE_ID ?? ''}

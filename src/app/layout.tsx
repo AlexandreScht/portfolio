@@ -1,4 +1,5 @@
 import HeaderBar from '@/components/navigations/headerBar';
+import { fullName } from '@/config/profile';
 import ThemeProvider from '@/hooks/ThemeProvider';
 import UiProviders from '@/hooks/UiProvider';
 import '@/styles/global.css';
@@ -21,14 +22,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-        />
-        <script
-          src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"
-          defer
-        ></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js" defer></script>
       </head>
       <body
         className="w-full font-sans bg-default-bg text-default-text transition-colors duration-300 ease-in-out min-h-screen relative pb-22"
@@ -40,8 +35,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <HeaderBar />
               {children}
             </UiProviders>
-            <footer className="text-center px-8 py-6 bg-accent text-muted absolute bottom-0 w-full">
-              <p>&copy; 2025 Schecht Alexandre. Tous droits réservés.</p>
+            <footer className="text-center px-4 sm:px-8 py-4 sm:py-6 bg-accent text-muted absolute bottom-0 w-full">
+              <p className="text-sm sm:text-base">&copy; 2025 {fullName}. Tous droits réservés.</p>
             </footer>
           </main>
         </ThemeProvider>

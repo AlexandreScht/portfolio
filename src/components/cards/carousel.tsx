@@ -5,28 +5,39 @@ import { Children, cloneElement, isValidElement, useMemo } from 'react';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/free-mode';
-import { Autoplay, FreeMode } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import type { SwiperProps } from 'swiper/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Carousel({ children, className, ...other }: Cards.Carousel) {
   const swiperOptions: SwiperProps = useMemo(
     () => ({
-      modules: [Autoplay, FreeMode],
+      modules: [Autoplay],
       loop: true,
       freeMode: {
         momentum: true,
         momentumRatio: 1,
-        momentumBounce: false,
+        momentumBounce: true,
       },
       autoplay: {
         delay: 0,
         disableOnInteraction: false,
+        pauseOnMouseEnter: false,
       },
       speed: 5000,
-      slidesPerView: 7,
+      slidesPerView: 2,
       spaceBetween: 40,
-      breakpoints: {},
+      breakpoints: {
+        1024: {
+          slidesPerView: 7,
+        },
+        768: {
+          slidesPerView: 4,
+        },
+        640: {
+          slidesPerView: 3,
+        },
+      },
       ...other,
     }),
     [other],

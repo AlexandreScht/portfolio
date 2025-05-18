@@ -1,5 +1,6 @@
 'use client';
 
+import { useDevice } from '@/hooks/useDevice';
 import { type Forms } from '@/interfaces/forms';
 import { contactSchema } from '@/validators/contact';
 import emailjs from '@emailjs/browser';
@@ -12,41 +13,35 @@ import 'toastify-js/src/toastify.css';
 import { type z } from 'zod';
 
 export default function ContactForm({ serviceId, templateId, publicKey }: Forms.Contact) {
+  const deviceType = useDevice();
   type ContactFormData = z.infer<typeof contactSchema>;
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isSubmitting, isValid },
+    reset,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     mode: 'onBlur',
     reValidateMode: 'onChange',
   });
 
-  const onHandleSubmit: SubmitHandler<ContactFormData> = useCallback(
-    async form => {
+  const onSubmit: SubmitHandler<ContactFormData> = useCallback(
+    async data => {
       try {
-        await emailjs.send(
-          serviceId,
-          templateId,
-          { ...form, message: form.body },
-          {
-            publicKey: publicKey,
-          },
-        );
-        reset();
+        await emailjs.send(serviceId, templateId, data, publicKey);
         Toastify({
           text: '✓ Mail envoyé avec succès',
           duration: 3000,
           gravity: 'bottom',
-          position: 'right',
+          position: deviceType === 'mobile' ? 'center' : 'right',
           close: false,
           style: {
             background: 'linear-gradient(135deg, var(--color-success) 0%, var(--color-success-border) 100%)',
             color: '#ffffff',
-            padding: '1rem 1.5rem',
-            borderRadius: '0.5rem',
+            padding: deviceType === 'mobile' ? '1rem' : '1rem 1.5rem',
+            borderRadius: deviceType === 'mobile' ? '0' : '0.5rem',
             fontSize: '0.9rem',
             fontWeight: '500',
             border: '1px solid var(--color-success-border)',
@@ -54,20 +49,23 @@ export default function ContactForm({ serviceId, templateId, publicKey }: Forms.
             display: 'flex',
             alignItems: 'center',
             transition: 'all 0.2s ease-in-out',
+            width: deviceType === 'mobile' ? '200%' : 'auto',
+            justifyContent: deviceType === 'mobile' ? 'center' : 'flex-start',
           },
         }).showToast();
+        reset();
       } catch (error) {
         Toastify({
           text: "Erreur lors de l'envoi du mail",
           duration: 3000,
           gravity: 'bottom',
-          position: 'right',
+          position: deviceType === 'mobile' ? 'center' : 'right',
           close: false,
           style: {
             background: 'linear-gradient(135deg, var(--color-error-toast) 0%, var(--color-error-border) 100%)',
             color: '#fff',
-            padding: '1rem 1.5rem',
-            borderRadius: '0.5rem',
+            padding: deviceType === 'mobile' ? '1rem' : '1rem 1.5rem',
+            borderRadius: deviceType === 'mobile' ? '0' : '0.5rem',
             fontSize: '0.9rem',
             fontWeight: '500',
             border: '1px solid var(--color-error-border)',
@@ -75,58 +73,75 @@ export default function ContactForm({ serviceId, templateId, publicKey }: Forms.
             display: 'flex',
             alignItems: 'center',
             transition: 'all 0.2s ease-in-out',
+            width: deviceType === 'mobile' ? '200%' : 'auto',
+            justifyContent: deviceType === 'mobile' ? 'center' : 'flex-start',
           },
         }).showToast();
       }
     },
-    [reset],
+    [serviceId, templateId, publicKey, reset, deviceType],
   );
 
-  const InputClassName = useCallback((hasError: boolean) => {
-    return cn(
-      'w-full px-4 py-3 rounded-lg bg-card-bg dark:bg-[#0f1c30] border text-default-text placeholder:text-muted focus:outline-none transition-all',
-      hasError
-        ? 'border-error-border focus:border-error focus:ring-2 focus:ring-error/20'
-        : 'border-border/40 focus:border-primary focus:ring-2 focus:ring-primary/20',
-    );
-  }, []);
-
   return (
-    <form onSubmit={handleSubmit(onHandleSubmit)} className="flex flex-col gap-6" noValidate>
-      <div className="flex flex-col gap-2">
-        <label htmlFor="name" className="text-default-text font-medium">
-          Nom
-        </label>
-        <input type="text" id="name" {...register('fullname')} className={InputClassName(!!errors.fullname)} placeholder="Votre nom" />
-        {errors.fullname && <span className="text-error text-sm">{errors.fullname.message}</span>}
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+        <div className="flex flex-col gap-2">
+          <label htmlFor="fullname" className="text-sm font-medium text-default-text">
+            Nom
+          </label>
+          <input
+            {...register('fullname')}
+            type="text"
+            id="fullname"
+            className={cn(
+              'w-full px-4 py-2 rounded-lg bg-card-bg border border-border/30 focus:border-primary focus:outline-none transition-colors duration-200',
+              errors.fullname && 'border-danger',
+            )}
+            placeholder="Votre nom"
+          />
+          {errors.fullname && <span className="text-danger text-sm">{errors.fullname.message}</span>}
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className="text-sm font-medium text-default-text">
+            Email
+          </label>
+          <input
+            {...register('email')}
+            type="email"
+            id="email"
+            className={cn(
+              'w-full px-4 py-2 rounded-lg bg-card-bg border border-border/30 focus:border-primary focus:outline-none transition-colors duration-200',
+              errors.email && 'border-danger',
+            )}
+            placeholder="Votre email"
+          />
+          {errors.email && <span className="text-danger text-sm">{errors.email.message}</span>}
+        </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="email" className="text-default-text font-medium">
-          Email
-        </label>
-        <input type="email" id="email" {...register('email')} className={InputClassName(!!errors.email)} placeholder="votre@email.com" />
-        {errors.email && <span className="text-error text-sm">{errors.email.message}</span>}
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <label htmlFor="message" className="text-default-text font-medium">
+        <label htmlFor="body" className="text-sm font-medium text-default-text">
           Message
         </label>
         <textarea
-          id="message"
-          rows={5}
           {...register('body')}
-          className={`${InputClassName(!!errors.body)} resize-none pb-4`}
-          placeholder="Votre message..."
+          id="body"
+          rows={6}
+          className={cn(
+            'w-full px-4 py-2 rounded-lg bg-card-bg border border-border/30 focus:border-primary focus:outline-none transition-colors duration-200 resize-none',
+            errors.body && 'border-danger',
+          )}
+          placeholder="Votre message"
         />
-        {errors.body && <span className="text-error text-sm">{errors.body.message}</span>}
+        {errors.body && <span className="text-danger text-sm">{errors.body.message}</span>}
       </div>
+
       <Button
         type="submit"
-        disabled={!isValid}
+        className="w-full bg-primary mt-2 text-white hover:bg-secondary transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-lg"
         isLoading={isSubmitting}
-        className="w-full py-3 h-fit px-6 bg-primary hover:bg-secondary text-white font-medium rounded-lg mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled={!isValid}
       >
         Envoyer
       </Button>

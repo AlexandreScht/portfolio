@@ -2,6 +2,7 @@
 'use client';
 
 import { cn } from '@heroui/react';
+import Link from 'next/link';
 import { useCallback, useState, type ReactNode } from 'react';
 import { IoMdList } from 'react-icons/io';
 import { TbCarouselHorizontal } from 'react-icons/tb';
@@ -19,7 +20,8 @@ export function Switcher({ children, initialState, className }: SwitcherProps) {
 
   return (
     <div className={cn('w-full relative', className)}>
-      <div
+      <Link
+        href="/#skills"
         className={cn(
           'sticky top-24 left-full z-20 p-1 mb-10 rounded-md flex w-fit items-center transition-all duration-300 ease-in border border-border bg-accent dark:bg-card-bg',
         )}
@@ -50,7 +52,7 @@ export function Switcher({ children, initialState, className }: SwitcherProps) {
             />
           </button>
         </div>
-      </div>
+      </Link>
       <div className="relative w-full overflow-hidden mt-4">
         <div className={cn('w-full inset-0 transition-transform duration-300 ease-in-out', isSelected ? 'translate-x-0' : '-translate-x-full h-0')}>
           {firstChild}
