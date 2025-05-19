@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <section id="home" className="min-h-screen separator flex items-center relative overflow-hidden home">
-        <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-6xl m-[0_auto] px-4 md:px-0 mt-16 md:mt-0">
+        <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-11 lg:gap-16 max-w-6xl m-[0_auto] px-4 lg:px-0 mt-16 md:mt-0">
           <div className="profile-image w-56 h-56 md:w-64 lg:w-72 md:h-64 lg:h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)] order-1 md:order-2">
             <InteractiveImage
               src={`${process.env.NODE_ENV !== 'production' ? '' : '/portfolio/'}/avatar.jpg`}
@@ -64,12 +64,12 @@ export default function Home() {
               </Carousel>
             )}
           </>
-          <SkillList className="px-4 md:px-40" />
+          <SkillList className="px-4 lg:px-40" />
         </Switcher>
       </AnimatedSection>
       <AnimatedSection id="projects" className="separator">
         <h2 className="subtitle">Projets</h2>
-        <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 md:gap-x-8 lg:gap-x-14 gap-y-12 md:gap-y-16 lg:gap-y-24 w-full justify-center px-1 sm:px-6 md:px-16 lg:px-32">
+        <article className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 md:gap-x-9 lg:gap-x-14 gap-y-12 md:gap-y-16 lg:gap-y-24 w-full justify-center px-1 sm:px-6 lg:px-32">
           {projects
             .sort((a, b) => Number(b.date) - Number(a.date))
             .map(v => {
@@ -127,7 +127,7 @@ export default function Home() {
             })}
         </article>
       </AnimatedSection>
-      <AnimatedSection id="contact" className="w-full md:w-[65%] lg:w-[45%] mx-auto px-8 sm:px-4 my-12 md:my-20 lg:my-24">
+      <AnimatedSection id="contact" className="w-full md:w-[75%] lg:w-[45%] mx-auto px-8 sm:px-4 my-12 md:my-20 lg:my-24">
         <h2 className="subtitle">Me Contacter</h2>
         <ContactForm
           serviceId={process.env.EMAILJS_SERVICE_ID ?? ''}
