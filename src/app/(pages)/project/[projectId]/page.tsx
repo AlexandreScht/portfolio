@@ -1,7 +1,6 @@
 import Button from '@/components/buttons';
+import { Gallery } from '@/components/cards/gallery';
 import projects from '@/config/projects';
-import { cn } from '@heroui/react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowLeftLong } from 'react-icons/fa6';
@@ -39,9 +38,36 @@ export default async function Project({ params }: { params: Promise<{ projectId:
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
-        <div className="w-full aspect-square overflow-hidden relative rounded-2xl">
+        <div className="w-full aspect-square md:aspect-auto h-full overflow-hidden">
           {project?.picture?.length ? (
-            <Image src={project.picture[0]} alt={`${project.title} project picture`} fill />
+            <div className="flex flex-col justify-between gap-y-8 md:flex-1 h-full">
+              <Gallery
+                breakpoints={{
+                  desktop: project.picture.slice(0, 2).map(v => ({
+                    src: v,
+                    alt: `${project.title} project picture`,
+                    className: 'border-1 border-border/20 rounded-lg',
+                    fill: true,
+                  })),
+                  tablet: [
+                    {
+                      src: project.picture[0],
+                      alt: `${project.title} project picture`,
+                      className: 'border-1 border-border/20 rounded-lg',
+                      fill: true,
+                    },
+                  ],
+                  mobile: [
+                    {
+                      src: project.picture[0],
+                      alt: `${project.title} project picture`,
+                      className: 'border-1 border-border/20 rounded-lg',
+                      fill: true,
+                    },
+                  ],
+                }}
+              />
+            </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-accent">
               <FiCameraOff className="w-32 md:w-36 lg:w-42 h-32 md:h-36 lg:h-42 text-default-text/75" />
@@ -65,15 +91,53 @@ export default async function Project({ params }: { params: Promise<{ projectId:
             <h2 className="text-xl md:text-xl lg:text-2xl mb-3 md:mb-3 lg:mb-4 text-default-text font-medium text-left">Description</h2>
             <p className="text-muted leading-6 md:leading-7 lg:leading-8 text-sm md:text-sm lg:text-base font-medium m-0">{project?.description}</p>
           </div>
+
+          <div className="hidden lg:block">
+            <div className="mb-6">
+              <h2 className="text-xl md:text-xl lg:text-2xl mb-3 md:mb-3 lg:mb-4 text-default-text font-medium text-left">
+                Fonctionnalités Techniques
+              </h2>
+              <ul className="pl-4 md:pl-5 lg:pl-6 m-0 list-disc">
+                {project?.features.map(v => (
+                  <li key={v} className="text-muted mb-2 md:mb-2 lg:mb-3 leading-6 md:leading-6 lg:leading-7 text-sm md:text-sm lg:text-base">
+                    {v}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-xl md:text-xl lg:text-2xl mb-3 md:mb-3 lg:mb-4 text-default-text font-medium text-left">Technologies utilisées</h2>
+              <div className="flex flex-wrap gap-2 md:gap-2 lg:gap-3">
+                {project?.skills.map(v => (
+                  <span
+                    key={v}
+                    className="flex-shrink-0 px-2 py-1 rounded bg-accent text-primary text-xs md:text-xs lg:text-sm shadow-[0_1px_1px_var(--color-shadow)]"
+                  >
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {project?.link && (
+              <Link href={project.link.url} target="_blank" rel="noopener noreferrer" className="mt-6 block">
+                <Button
+                  className="px-4 py-[0.6rem] rounded-lg text-sm md:text-sm lg:text-base bg-primary border-1 border-border/20 text-white w-full border-none hover:bg-secondary hover:border-primary"
+                  startContent={LinkIcon ? <LinkIcon className="mb-0.5" /> : undefined}
+                >
+                  {project.link.label}
+                </Button>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Section inférieure - Features et Technologies */}
-      <div className="mt-6 md:mt-8 lg:mt-10">
-        {/* Features en deux colonnes */}
-        <div className="mb-6 md:mb-8 lg:mb-10">
+      <div className="mt-6 md:mt-8 lg:hidden">
+        <div className="mb-6 md:mb-8">
           <h2 className="text-xl md:text-xl lg:text-2xl mb-3 md:mb-3 lg:mb-4 text-default-text font-medium text-left">Fonctionnalités Techniques</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8 lg:gap-x-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 md:gap-x-8">
             <ul className="pl-4 md:pl-5 lg:pl-6 m-0 list-disc">
               {project?.features.slice(0, Math.ceil(project.features.length / 2)).map(v => (
                 <li key={v} className="text-muted mb-2 md:mb-2 lg:mb-3 leading-6 md:leading-6 lg:leading-7 text-sm md:text-sm lg:text-base">
@@ -91,7 +155,6 @@ export default async function Project({ params }: { params: Promise<{ projectId:
           </div>
         </div>
 
-        {/* Technologies en dessous */}
         <div>
           <h2 className="text-xl md:text-xl lg:text-2xl mb-3 md:mb-3 lg:mb-4 text-default-text font-medium text-left">Technologies utilisées</h2>
           <div className="flex flex-wrap gap-2 md:gap-2 lg:gap-3 max-w-md">
@@ -105,43 +168,49 @@ export default async function Project({ params }: { params: Promise<{ projectId:
             ))}
           </div>
         </div>
+
+        <div className="mt-6 md:mt-8 w-full lg:hidden">
+          {project?.link && (
+            <Link href={project.link.url} target="_blank" rel="noopener noreferrer" className="mt-1.5">
+              <Button
+                className="m-auto px-4 py-[0.6rem] rounded-lg text-sm md:text-sm lg:text-base bg-primary border-1 border-border/20 text-white w-full border-none hover:bg-secondary hover:border-primary"
+                startContent={LinkIcon ? <LinkIcon className="mb-0.5" /> : undefined}
+              >
+                {project.link.label}
+              </Button>
+            </Link>
+          )}
+        </div>
       </div>
 
-      {/* Bouton de lien */}
-      <div className="mt-6 md:mt-8 lg:mt-10 w-full">
-        {project?.link && (
-          <Link href={project.link.url} target="_blank" rel="noopener noreferrer" className="mt-1.5">
-            <Button
-              className="m-auto px-4 py-[0.6rem] rounded-lg text-sm md:text-sm lg:text-base bg-primary border-1 border-border/20 text-white w-full border-none hover:bg-secondary hover:border-primary"
-              startContent={LinkIcon ? <LinkIcon className="mb-0.5" /> : undefined}
-            >
-              {project.link.label}
-            </Button>
-          </Link>
-        )}
-      </div>
-
-      {/* Images supplémentaires */}
       {project?.picture && project?.picture?.length > 1 && (
-        <>
-          {/* Version mobile */}
-          <div className="grid grid-cols-1 gap-y-4 mt-14 md:hidden">
-            {project.picture.slice(1).map((v, idx) => (
-              <div key={idx + 1} className="w-full aspect-square overflow-hidden relative rounded-2xl">
-                <Image src={v} alt={`${project.title} project picture ${idx + 1}`} fill />
-              </div>
-            ))}
+        <div className="md:mb-14 lg:mb-16">
+          <div className="grid px-8 md:px-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-10">
+            <Gallery
+              className="w-full aspect-square relative rounded-2xl bg-accent/5 p-2 hover:bg-accent/10"
+              breakpoints={{
+                desktop: project.picture.slice(2).map((v, idx) => ({
+                  src: v,
+                  alt: `${project.title} project picture ${idx + 2}`,
+                  className: 'rounded-xl mt-24 border-2 border-border/10 hover:border-primary/20 transition-all duration-300 hover:scale-115',
+                  fill: true,
+                })),
+                tablet: project.picture.slice(1).map((v, idx) => ({
+                  src: v,
+                  alt: `${project.title} project picture ${idx + 2}`,
+                  className: 'rounded-xl mt-18 border-2 border-border/10 hover:border-primary/20 transition-colors duration-300',
+                  fill: true,
+                })),
+                mobile: project.picture.slice(1).map((v, idx) => ({
+                  src: v,
+                  alt: `${project.title} project picture ${idx + 2}`,
+                  className: 'rounded-xl mt-10 border-2 border-border/10 hover:border-primary/20 transition-colors duration-300',
+                  fill: true,
+                })),
+              }}
+            />
           </div>
-
-          {/* Version tablette */}
-          <div className="hidden md:grid lg:hidden grid-cols-2 gap-4 mt-8">
-            {project.picture.slice(1).map((v, idx) => (
-              <div key={idx + 1} className="w-full aspect-square overflow-hidden relative rounded-2xl">
-                <Image src={v} alt={`${project.title} project picture ${idx + 1}`} fill />
-              </div>
-            ))}
-          </div>
-        </>
+        </div>
       )}
     </div>
   );

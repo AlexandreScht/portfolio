@@ -1,8 +1,11 @@
+import { type Interfaces } from '@/interfaces';
 import { type HTMLMotionProps } from 'framer-motion';
-import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react';
+import { type LinkProps } from 'next/link';
+import { type AnchorHTMLAttributes, type DetailedHTMLProps, type HTMLAttributes, type ImgHTMLAttributes, type ReactNode } from 'react';
 import type { SwiperProps } from 'swiper/react';
 
 declare namespace Cards {
+  type breakpoints = '';
   export interface Carousel extends SwiperProps {
     className?: string;
   }
@@ -23,5 +26,14 @@ declare namespace Cards {
     children: ReactNode;
     key: string;
     href: string;
+  }
+
+  type NextLinkProps = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement> & ImgHTMLAttributes<HTMLImageElement> & { fill: boolean };
+
+  export interface Gallery extends Omit<NextLinkProps, 'href' | 'src' | 'fill'> {
+    className?: string;
+    breakpoints: {
+      [key in Interfaces.breakpoints]?: Omit<NextLinkProps, 'href'>[];
+    };
   }
 }

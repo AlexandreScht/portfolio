@@ -47,10 +47,8 @@ export default function ExperiencesPage() {
               className="bg-card-bg rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-border/30 hover:border-primary/50 transform hover:-translate-y-1"
             >
               <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-4 lg:gap-6 mb-2">
-                <div className='flex-1'>
-                  <h2 className="text-xl md:text-xl lg:text-2xl font-bold text-default-text">
-                    {experience.title}
-                  </h2>
+                <div className="flex-1">
+                  <h2 className="text-xl md:text-xl lg:text-2xl font-bold text-default-text">{experience.title}</h2>
                   <div className="flex items-center gap-2 text-default-text/90 mt-1">
                     <HiOutlineBuildingOffice className="w-5 h-5" />
                     <h3 className="text-base md:text-base lg:text-lg font-medium h-fit w-fit">{experience.company}</h3>
@@ -125,10 +123,8 @@ export default function ExperiencesPage() {
             >
               <div className="flex flex-col gap-3 md:gap-4 lg:gap-6">
                 <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-4 lg:gap-6 mb-2">
-                  <div className='flex-1'>
-                    <h2 className="text-base md:text-lg lg:text-xl font-semibold text-default-text">
-                      {formation.title}
-                    </h2>
+                  <div className="flex-1">
+                    <h2 className="text-base md:text-lg lg:text-xl font-semibold text-default-text">{formation.title}</h2>
                     <div className="flex items-center gap-2 text-default-text/90 mt-1">
                       <IoSchoolOutline className="w-4 md:w-4 lg:w-5 h-4 md:h-4 lg:h-5 mb-0.5" />
                       <h3 className="text-base md:text-base lg:text-lg font-medium h-fit w-fit">{formation.school}</h3>

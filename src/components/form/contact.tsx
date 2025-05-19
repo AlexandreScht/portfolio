@@ -55,6 +55,7 @@ export default function ContactForm({ serviceId, templateId, publicKey }: Forms.
         }).showToast();
         reset();
       } catch (error) {
+        console.error(error);
         Toastify({
           text: "Erreur lors de l'envoi du mail",
           duration: 3000,

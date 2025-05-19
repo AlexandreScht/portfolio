@@ -1,11 +1,10 @@
 'use client';
 
+import { type Interfaces } from '@/interfaces';
 import { useEffect, useState } from 'react';
 
-type DeviceType = 'mobile' | 'tablet' | 'desktop';
-
 export function useDevice() {
-  const [deviceType, setDeviceType] = useState<DeviceType>('desktop');
+  const [deviceType, setDeviceType] = useState<Interfaces.breakpoints>('desktop');
 
   useEffect(() => {
     const checkDevice = () => {

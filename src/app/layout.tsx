@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <HeaderBar />
               {children}
             </UiProviders>
-            <footer className="text-center px-4 sm:px-8 py-4 sm:py-6 bg-accent text-muted absolute bottom-0 w-full">
+            <footer className="text-center px-4 sm:px-8 py-4 sm:py-5 bg-accent text-muted absolute bottom-0 w-full">
               <p className="text-sm sm:text-base">&copy; 2025 {fullName}. Tous droits réservés.</p>
             </footer>
           </main>
