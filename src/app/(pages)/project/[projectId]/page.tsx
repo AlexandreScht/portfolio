@@ -21,7 +21,7 @@ export default async function Project({ params }: { params: Promise<{ projectId:
   const LinkIcon = project?.link?.icon;
 
   return (
-    <div className="w-full sm:w-5/6 md:w-11/12 lg:w-4/6 my-0 mx-auto py-6 md:py-8 lg:py-10 px-4 sm:px-0">
+    <div className="w-full sm:w-5/6 md:w-11/12 lg:w-9/12 my-0 mx-auto py-6 md:py-8 lg:py-10 px-4 sm:px-0">
       <div className="mb-6 md:mb-8 lg:mb-10">
         <Link
           href="/#projects"
@@ -37,31 +37,31 @@ export default async function Project({ params }: { params: Promise<{ projectId:
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
-        <div className="w-full aspect-square md:aspect-auto h-full overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 md:gap-8 lg:gap-10">
+        <div className="w-full h-fit md:h-full">
           {project?.picture?.length ? (
-            <div className="flex flex-col justify-between gap-y-8 md:flex-1 h-full">
+            <div className="flex flex-col justify-between gap-y-8 h-fit md:h-full">
               <Gallery
                 breakpoints={{
-                  desktop: project.picture.slice(0, 2).map(v => ({
+                  desktop: project.picture.slice(0,3).map(v => ({
                     src: v,
                     alt: `${project.title} project picture`,
-                    className: 'border-1 border-border/20 rounded-lg',
+                    className:
+                      'border-1 border-border/20 rounded-lg !object-scale-down !w-full !h-auto hover:border-primary/20 transition-all duration-300 hover:scale-105',
                     fill: true,
                   })),
-                  tablet: [
-                    {
-                      src: project.picture[0],
-                      alt: `${project.title} project picture`,
-                      className: 'border-1 border-border/20 rounded-lg',
-                      fill: true,
-                    },
-                  ],
+                  tablet: project.picture.slice(0,2).map(v => ({
+                    src: v,
+                    alt: `${project.title} project picture`,
+                    className:
+                      'border-1 border-border/20 rounded-lg !object-scale-down !w-full !h-auto',
+                    fill: true,
+                  })),
                   mobile: [
                     {
                       src: project.picture[0],
                       alt: `${project.title} project picture`,
-                      className: 'border-1 border-border/20 rounded-lg',
+                      className: 'border-1 !relative border-border/20 rounded-lg !object-scale-down !w-full !h-auto',
                       fill: true,
                     },
                   ],
@@ -69,8 +69,8 @@ export default async function Project({ params }: { params: Promise<{ projectId:
               />
             </div>
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-accent">
-              <FiCameraOff className="w-32 md:w-36 lg:w-42 h-32 md:h-36 lg:h-42 text-default-text/75" />
+            <div className="w-full h-42 md:h-auto md:aspect-square flex items-center justify-center bg-accent">
+              <FiCameraOff className="w-20 md:w-36 lg:w-42 h-20 md:h-36 lg:h-42 text-default-text/75" />
             </div>
           )}
         </div>
@@ -184,21 +184,21 @@ export default async function Project({ params }: { params: Promise<{ projectId:
       </div>
 
       {project?.picture && project?.picture?.length > 1 && (
-        <div className="md:mb-14 lg:mb-16">
-          <div className="grid px-8 md:px-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-10">
+        <div className='w-full'>
+          <div className="grid px-8 md:px-0 grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-10">
             <Gallery
-              className="w-full aspect-square relative rounded-2xl bg-accent/5 p-2 hover:bg-accent/10"
+              className="w-full h-full"
               breakpoints={{
-                desktop: project.picture.slice(2).map((v, idx) => ({
+                desktop: project.picture.slice(3).map((v, idx) => ({
                   src: v,
                   alt: `${project.title} project picture ${idx + 2}`,
-                  className: 'rounded-xl mt-24 border-2 border-border/10 hover:border-primary/20 transition-all duration-300 hover:scale-115',
+                  className: 'rounded-xl !relative !w-full bg-accent !h-auto mt-24 border-2 border-border/10 hover:border-primary/20 transition-all duration-300 hover:scale-115',
                   fill: true,
                 })),
-                tablet: project.picture.slice(1).map((v, idx) => ({
+                tablet: project.picture.slice(2).map((v, idx) => ({
                   src: v,
                   alt: `${project.title} project picture ${idx + 2}`,
-                  className: 'rounded-xl mt-18 border-2 border-border/10 hover:border-primary/20 transition-colors duration-300',
+                  className: 'rounded-xl !relative !w-full bg-accent !h-auto mt-24 border-2 border-border/10',
                   fill: true,
                 })),
                 mobile: project.picture.slice(1).map((v, idx) => ({

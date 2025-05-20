@@ -18,7 +18,7 @@ export namespace Profile {
     resume: string;
     description: string;
     link?: { icon?: IconType; label: string; url: string };
-    picture?: [string, string?, string?];
+    picture?: string[];
     skills: SkillName[];
     types: string[];
     features: string[];

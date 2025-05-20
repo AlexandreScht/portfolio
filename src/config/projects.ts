@@ -10,8 +10,10 @@ const projects = [
       'Co-fondateur & fullstack developer de Talaryo, j’ai conçu et déployé une plateforme B2B from scratch sur VPS, conteneurisée avec Docker, dotée d’un back-end RESTful sécurisé (JWT/OAuth2) et d’un système d’authentification robuste. J’y ai intégré un moteur de recherche multi-critères, des API optimisées et un back-office analytique, le tout orienté performance, scalabilité et qualité d’expérience utilisateur.',
     link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/Talaryo.git' },
     picture: [
-      'https://framerusercontent.com/images/t0OQXdarLOXkzUsV7C11zPAJnys.jpg',
-      'https://framerusercontent.com/images/URs6ni1mUB9QM5ZpirWZfynSKM.png',
+      'https://lh3.googleusercontent.com/pw/AP1GczNJvKZgsmRjASYuzokMMc7xbzT5dTgZ946tV82lyj4jEXakSjMXe2SO0tGjCMmW8W8Z1sBP6ZjcdzDKwlLOJdHesi85t3-SK1W21dIQB-BvQRK89qoVxs0CrCdYttTgaIDmD6uzkwIrvNQWPr3vR0u7=w1376-h640-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczMOVWPyPHG-3oq58xnNO86pM7Imrz6EvJBNr0XCViCiGhUaJ1a7_9q2Dxwx0ZR5Ge52fpVBtaR4WqdX6u96L5DmI6r4QtoR78JOSq0xLhxpSzGN6fKo3217cHv72w7Cg6gFNSsjYRiuQYmvc95y7sXK=w1857-h837-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczP6dmsv2C5uTd1e4YKdKcclokaTxmFAdk-e9Xd9RhCtGJN_XVIVSJwVPr4DMo5ws9GbvecCGMEhpMoZlE_JFlCZyALvODdyNGK9KLsrB5w7ERb40bFJvTbuKIa3XuZHcy84f9xNO7s06jlQGd6h2Yyx=w1737-h772-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczPZrFrkUaqZxCXZikiBuDXMSlpcRpAttIV2M7jNDbSPGAOVcfrMfmfgcYe0CPIwxdM0napDkcTBxD__cDb4vLmMuUBlEiyT_J8WiVGwUO8XOm3H4Gnm9RrTBhTkw6IFfrI0IohPL16jopKMHPuoJDyZ=w1856-h747-s-no-gm?authuser=0'
     ],
     skills: [
       'Next.js',
