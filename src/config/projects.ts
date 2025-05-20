@@ -13,7 +13,7 @@ const projects = [
       'https://lh3.googleusercontent.com/pw/AP1GczNJvKZgsmRjASYuzokMMc7xbzT5dTgZ946tV82lyj4jEXakSjMXe2SO0tGjCMmW8W8Z1sBP6ZjcdzDKwlLOJdHesi85t3-SK1W21dIQB-BvQRK89qoVxs0CrCdYttTgaIDmD6uzkwIrvNQWPr3vR0u7=w1376-h640-s-no-gm?authuser=0',
       'https://lh3.googleusercontent.com/pw/AP1GczMOVWPyPHG-3oq58xnNO86pM7Imrz6EvJBNr0XCViCiGhUaJ1a7_9q2Dxwx0ZR5Ge52fpVBtaR4WqdX6u96L5DmI6r4QtoR78JOSq0xLhxpSzGN6fKo3217cHv72w7Cg6gFNSsjYRiuQYmvc95y7sXK=w1857-h837-s-no-gm?authuser=0',
       'https://lh3.googleusercontent.com/pw/AP1GczP6dmsv2C5uTd1e4YKdKcclokaTxmFAdk-e9Xd9RhCtGJN_XVIVSJwVPr4DMo5ws9GbvecCGMEhpMoZlE_JFlCZyALvODdyNGK9KLsrB5w7ERb40bFJvTbuKIa3XuZHcy84f9xNO7s06jlQGd6h2Yyx=w1737-h772-s-no-gm?authuser=0',
-      'https://lh3.googleusercontent.com/pw/AP1GczPZrFrkUaqZxCXZikiBuDXMSlpcRpAttIV2M7jNDbSPGAOVcfrMfmfgcYe0CPIwxdM0napDkcTBxD__cDb4vLmMuUBlEiyT_J8WiVGwUO8XOm3H4Gnm9RrTBhTkw6IFfrI0IohPL16jopKMHPuoJDyZ=w1856-h747-s-no-gm?authuser=0'
+      'https://lh3.googleusercontent.com/pw/AP1GczPZrFrkUaqZxCXZikiBuDXMSlpcRpAttIV2M7jNDbSPGAOVcfrMfmfgcYe0CPIwxdM0napDkcTBxD__cDb4vLmMuUBlEiyT_J8WiVGwUO8XOm3H4Gnm9RrTBhTkw6IFfrI0IohPL16jopKMHPuoJDyZ=w1856-h747-s-no-gm?authuser=0',
     ],
     skills: [
       'Next.js',
@@ -85,7 +85,10 @@ const projects = [
     description:
       'Ce projet consiste en un site statique permettant de s’entraîner à l’examen du permis de conduire grâce à des QCM aléatoires basés sur les questions officielles. À la fin de chaque QCM, un bilan récapitule les erreurs et met en évidence les questions à revoir. Léger et rapide, le site fonctionne entièrement côté client, sans nécessiter de serveur.',
     link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/permis' },
-    picture: undefined,
+    picture: [
+      'https://lh3.googleusercontent.com/pw/AP1GczPLNR3TLjscu18G_9y-CCXQ96lV_gVzgiX1bmSHLGXfIG0WYHvAWTO2p0d4c2RMVIH9jIe7g4vjE3nILPS-lP6HAoxf0OC5K4vTNadJKd3YF65rUXgw14WqBY_PDQh21xXth7QxULbfaBjfCMEhSsMl=w1877-h956-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczNnWb4qrSZ4comys07kAXluvRYOdRAwhjpjrO0ub7mxRH3BvfKwPCh9s5tJjI_XLEG_ajzdotZTb1sibEmWW1NNPPtoUgklzVrpe4X5JALbMYGmwtPKSgIApDjd9mZvSxKggoetTLtJks24nriNi_Qe=w1897-h955-s-no-gm?authuser=0',
+    ],
     skills: ['Next.js', 'TypeScript', 'Tailwindcss'],
     types: ['Site Static'],
     features: [
@@ -106,7 +109,13 @@ const projects = [
       label: 'GitHub',
       url: 'https://github.com/AlexandreScht/mini-game',
     },
-    picture: undefined,
+    picture: [
+      'https://lh3.googleusercontent.com/pw/AP1GczOqyW4ZTqPqFrB256nFZfFfeTcQzGIGA2pqb4Hj-XvIen-uX9IjmiJrlohIHDcNDgnZsRqWYI5mM5R4LlP73pgCq6CSZLqVquDu-NPw1QWs7qzPPjGu6B86pEEi1OniZIBY4VqTV_JegDv4v1j8Uw7u=w1892-h955-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczMGbRokv4hSFuSnzg2qcyb70dfj5lIZtT19LPYTbF5b1XeLpEohNAlmo9g0pIZDhseZSPMxERI08_UtpDJB5KSWxvDtV5jhj1k2Sm72FKvaJyhwVGJb9ZGV1haU2zg_y7DYj7AmLAJ-cEhsl1oiDayl=w1878-h967-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczOGuScIuv5NBLCy_CYbWdw4nWTvUO30qxz9p4GrY582jaV09Rena2SpKeSD20UFo4rO6Hd_79CbUAeJXaK-g0jeHV5UOKK6bPA5MD3t9QVb_Hb5abv97ynB97AgSJE5B6dyghS4xPFaJhYL4bXn3JF0=w1866-h842-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczPluvRqolS6kvoibdrtTcs6KtFYckydLGw4X1QObzF0B83Gip9f3n-i0feoiS0hZS52q9Px8M8Z9_ZTagPJIh8uQamV2qmewxyByHsbHOpZeC6_GywoLlEjzEblb4XmI52fnKBnVBwCT59kWctXkuKz=w1893-h962-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczOek7V7AIm9vkxqjve2JTxPk4oqHfiZ2_C3Uufg1RNoPXa-VQ0vHj7t1sRMH8agIDQUMIYB1E0ZbswmfCmNeV8A9uM5-Q8bBfWlKGQuJ_Vhh74L1bOqcAtLzQEIazVq7ZGM5F_zIpsfyxgZAVcI4KJ0=w1861-h843-s-no-gm?authuser=0',
+    ],
     skills: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
     types: ['Jeu', 'Projet Web'],
     features: [
