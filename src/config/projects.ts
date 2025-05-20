@@ -110,8 +110,8 @@ const projects = [
       url: 'https://github.com/AlexandreScht/mini-game',
     },
     picture: [
-      'https://lh3.googleusercontent.com/pw/AP1GczOqyW4ZTqPqFrB256nFZfFfeTcQzGIGA2pqb4Hj-XvIen-uX9IjmiJrlohIHDcNDgnZsRqWYI5mM5R4LlP73pgCq6CSZLqVquDu-NPw1QWs7qzPPjGu6B86pEEi1OniZIBY4VqTV_JegDv4v1j8Uw7u=w1892-h955-s-no-gm?authuser=0',
       'https://lh3.googleusercontent.com/pw/AP1GczMGbRokv4hSFuSnzg2qcyb70dfj5lIZtT19LPYTbF5b1XeLpEohNAlmo9g0pIZDhseZSPMxERI08_UtpDJB5KSWxvDtV5jhj1k2Sm72FKvaJyhwVGJb9ZGV1haU2zg_y7DYj7AmLAJ-cEhsl1oiDayl=w1878-h967-s-no-gm?authuser=0',
+      'https://lh3.googleusercontent.com/pw/AP1GczOqyW4ZTqPqFrB256nFZfFfeTcQzGIGA2pqb4Hj-XvIen-uX9IjmiJrlohIHDcNDgnZsRqWYI5mM5R4LlP73pgCq6CSZLqVquDu-NPw1QWs7qzPPjGu6B86pEEi1OniZIBY4VqTV_JegDv4v1j8Uw7u=w1892-h955-s-no-gm?authuser=0',
       'https://lh3.googleusercontent.com/pw/AP1GczOGuScIuv5NBLCy_CYbWdw4nWTvUO30qxz9p4GrY582jaV09Rena2SpKeSD20UFo4rO6Hd_79CbUAeJXaK-g0jeHV5UOKK6bPA5MD3t9QVb_Hb5abv97ynB97AgSJE5B6dyghS4xPFaJhYL4bXn3JF0=w1866-h842-s-no-gm?authuser=0',
       'https://lh3.googleusercontent.com/pw/AP1GczPluvRqolS6kvoibdrtTcs6KtFYckydLGw4X1QObzF0B83Gip9f3n-i0feoiS0hZS52q9Px8M8Z9_ZTagPJIh8uQamV2qmewxyByHsbHOpZeC6_GywoLlEjzEblb4XmI52fnKBnVBwCT59kWctXkuKz=w1893-h962-s-no-gm?authuser=0',
       'https://lh3.googleusercontent.com/pw/AP1GczOek7V7AIm9vkxqjve2JTxPk4oqHfiZ2_C3Uufg1RNoPXa-VQ0vHj7t1sRMH8agIDQUMIYB1E0ZbswmfCmNeV8A9uM5-Q8bBfWlKGQuJ_Vhh74L1bOqcAtLzQEIazVq7ZGM5F_zIpsfyxgZAVcI4KJ0=w1861-h843-s-no-gm?authuser=0',

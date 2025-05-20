@@ -37,24 +37,23 @@ export default async function Project({ params }: { params: Promise<{ projectId:
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-6 md:gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] xl:grid-cols-[0.9fr_1fr] gap-6 md:gap-8 lg:gap-10">
         <div className="w-full h-fit md:h-full">
           {project?.picture?.length ? (
             <div className="flex flex-col justify-between gap-y-8 h-fit md:h-full">
               <Gallery
                 breakpoints={{
-                  desktop: project.picture.slice(0,3).map(v => ({
+                  desktop: project.picture.slice(0, 3).map(v => ({
                     src: v,
                     alt: `${project.title} project picture`,
                     className:
-                      'border-1 border-border/20 rounded-lg !object-scale-down !w-full !h-auto hover:border-primary/20 transition-all duration-300 hover:scale-105',
+                      'border-1 !relative border-border/20 rounded-lg !object-scale-down !w-full !h-auto hover:border-primary/20 transition-all duration-300 hover:scale-105',
                     fill: true,
                   })),
-                  tablet: project.picture.slice(0,2).map(v => ({
+                  tablet: project.picture.slice(0, 2).map(v => ({
                     src: v,
                     alt: `${project.title} project picture`,
-                    className:
-                      'border-1 border-border/20 rounded-lg !object-scale-down !w-full !h-auto',
+                    className: 'border-1 !relative border-border/20 rounded-lg !object-scale-down !w-full !h-auto',
                     fill: true,
                   })),
                   mobile: [
@@ -184,7 +183,7 @@ export default async function Project({ params }: { params: Promise<{ projectId:
       </div>
 
       {project?.picture && project?.picture?.length > 1 && (
-        <div className='w-full'>
+        <div className="w-full">
           <div className="grid px-8 md:px-0 grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-10">
             <Gallery
               className="w-full h-full"
@@ -192,7 +191,8 @@ export default async function Project({ params }: { params: Promise<{ projectId:
                 desktop: project.picture.slice(3).map((v, idx) => ({
                   src: v,
                   alt: `${project.title} project picture ${idx + 2}`,
-                  className: 'rounded-xl !relative !w-full bg-accent !h-auto mt-24 border-2 border-border/10 hover:border-primary/20 transition-all duration-300 hover:scale-115',
+                  className:
+                    'rounded-xl !relative !w-full bg-accent !h-auto mt-24 border-2 border-border/10 hover:border-primary/20 transition-all duration-300 hover:scale-105',
                   fill: true,
                 })),
                 tablet: project.picture.slice(2).map((v, idx) => ({
