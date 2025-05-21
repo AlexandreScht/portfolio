@@ -35,5 +35,6 @@ declare namespace Cards {
     breakpoints: {
       [key in Interfaces.breakpoints]?: Omit<NextLinkProps, 'href'>[];
     };
+    children?: ReactNode;
   }
 }
