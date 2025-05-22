@@ -9,10 +9,10 @@ jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
-      - name: Appeler la Deploy Hook Vercel
-        uses: actions/http-client@v1
+      - name: Déclencher la Deploy Hook Vercel
+        uses: fjogeleit/http-request-action@v1.4.3
         with:
           url: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
-          method: 'POST'
-          headers: |
+          method: POST
+          customHeaders: |
             Content-Type: application/json
