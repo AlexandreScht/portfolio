@@ -20,7 +20,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-11 lg:gap-16 max-w-6xl m-[0_auto] px-4 lg:px-0 mt-16 md:mt-0">
           <div className="profile-image w-56 h-56 md:w-64 lg:w-72 md:h-64 lg:h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)] order-1 md:order-2">
             <InteractiveImage
-              src={`${process.env.NODE_ENV !== 'production' ? '' : '/portfolio/'}/avatar.jpg`}
+              src='/avatar.jpg'
               alt="profile picture"
               className="rounded-full"
             />
