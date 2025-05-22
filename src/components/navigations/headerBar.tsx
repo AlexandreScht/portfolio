@@ -1,12 +1,21 @@
 'use client';
 import { cn } from '@heroui/react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LuDownload } from 'react-icons/lu';
 import ThemeSwitcher from '../buttons/theme';
 
 export default function HeaderBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [subdomain, setSubdomain] = useState<string>('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const host = window.location.hostname;
+      const firstPart = host.split('-')[0];
+      setSubdomain(firstPart);
+    }
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full flex justify-between items-center px-4 lg:px-8 py-3.5 bg-card-bg backdrop-blur-md z-50 shadow-md border-b border-border">
@@ -52,8 +61,9 @@ export default function HeaderBar() {
             </li>
             <li>
               <Link
-                href="/cv.pdf"
+                href={`/pdf/${subdomain}-cv.pdf`}
                 download
+                prefetch={false}
                 className="bg-primary text-white pl-2.5 pr-4 py-2 rounded-lg inline-flex items-center gap-2 transition-all duration-300 hover:bg-secondary hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,102,255,0.2)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
                 onClick={() => setIsMenuOpen(false)}
               >
