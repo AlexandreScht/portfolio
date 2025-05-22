@@ -1,9 +1,8 @@
 'use client';
 
 import { useDevice } from '@/hooks/useDevice';
-import { type Forms } from '@/interfaces/forms';
+import { sendEmail } from '@/services/email';
 import { contactSchema } from '@/validators/contact';
-import emailjs from '@emailjs/browser';
 import { Button, cn } from '@heroui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useCallback } from 'react';
@@ -12,7 +11,7 @@ import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 import { type z } from 'zod';
 
-export default function ContactForm({ serviceId, templateId, publicKey }: Forms.Contact) {
+export default function ContactForm() {
   const deviceType = useDevice();
   type ContactFormData = z.infer<typeof contactSchema>;
 
@@ -30,7 +29,7 @@ export default function ContactForm({ serviceId, templateId, publicKey }: Forms.
   const onSubmit: SubmitHandler<ContactFormData> = useCallback(
     async data => {
       try {
-        await emailjs.send(serviceId, templateId, data, publicKey);
+        await sendEmail(data);
         Toastify({
           text: '✓ Mail envoyé avec succès',
           duration: 3000,
@@ -80,7 +79,7 @@ export default function ContactForm({ serviceId, templateId, publicKey }: Forms.
         }).showToast();
       }
     },
-    [serviceId, templateId, publicKey, reset, deviceType],
+    [deviceType, reset],
   );
 
   return (

@@ -1,14 +1,13 @@
-name: « Déploiement Vercel »  
+name: « Déploiement Vercel »
 
-on:  
-  push:  
-    branches: [ main ]  # Déclenché sur chaque push sur main
+on:
+  push:
+    branches: [main]
 
 jobs:
   trigger-deploy:
     runs-on: ubuntu-latest
     steps:
-      # (Optionnel) se placer dans le repo si besoin 
       - name: Checkout du code
         uses: actions/checkout@v3
 

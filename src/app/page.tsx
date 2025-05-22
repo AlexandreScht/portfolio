@@ -19,11 +19,7 @@ export default function Home() {
       <section id="home" className="min-h-screen separator flex items-center relative overflow-hidden home">
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-11 lg:gap-16 max-w-6xl m-[0_auto] px-4 lg:px-0 mt-16 md:mt-0">
           <div className="profile-image w-56 h-56 md:w-64 lg:w-72 md:h-64 lg:h-72 relative z-10 rounded-full bg-accent border-5 border-default-bg shadow-[0_10px_20px_var(--color-shadow)] order-1 md:order-2">
-            <InteractiveImage
-              src='/avatar.jpg'
-              alt="profile picture"
-              className="rounded-full"
-            />
+            <InteractiveImage src="/portfolio/avatar.jpg" alt="profile picture" className="rounded-full" />
           </div>
           <div className="flex-1 text-center md:text-left order-2 md:order-1">
             <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-bold mb-6 md:mb-10 dark:text-default-text">{fullName}</h1>
@@ -129,11 +125,7 @@ export default function Home() {
       </AnimatedSection>
       <AnimatedSection id="contact" className="w-full md:w-[75%] lg:w-[45%] mx-auto px-8 sm:px-4 my-12 md:my-20 lg:my-24">
         <h2 className="subtitle">Me Contacter</h2>
-        <ContactForm
-          serviceId={process.env.EMAILJS_SERVICE_ID ?? ''}
-          templateId={process.env.EMAILJS_TEMPLATE_ID ?? ''}
-          publicKey={process.env.EMAILJS_PUBLIC_KEY ?? ''}
-        />
+        <ContactForm />
       </AnimatedSection>
     </>
   );
