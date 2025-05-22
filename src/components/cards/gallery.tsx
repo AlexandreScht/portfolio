@@ -21,6 +21,7 @@ export function Gallery({ breakpoints, children, ...props }: Cards.Gallery) {
             return (
               <Image
                 key={index}
+                crossOrigin={undefined}
                 src={src as string}
                 alt={(iAlt ?? iAlt) as string}
                 fill={fill}

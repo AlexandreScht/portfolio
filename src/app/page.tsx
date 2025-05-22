@@ -78,7 +78,7 @@ export default function Home() {
                 >
                   <div className="h-48 w-full bg-accent flex justify-center items-center overflow-hidden relative">
                     {v?.picture?.length ? (
-                      <Image src={v.picture[0]} alt={`${v.title} project picture`} fill />
+                      <Image crossOrigin={undefined} src={v.picture[0]} alt={`${v.title} project picture`} fill />
                     ) : (
                       <FiCameraOff className="w-16 h-16 text-default-text/75" />
                     )}
