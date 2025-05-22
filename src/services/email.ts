@@ -1,6 +1,6 @@
 'use server';
 
-import templateRaw from '@/template/contact.html';
+import contactTemplate from '@/template/contactTemplate';
 import { type contactSchema } from '@/validators/contact';
 import nodemailer from 'nodemailer';
 import { type z } from 'zod';
@@ -16,7 +16,7 @@ export async function sendEmail({ body, email, fullname }: z.infer<typeof contac
     },
   });
 
-  const html = templateRaw.replace('{{name}}', fullname).replace('{{body}}', body).replace('{{email}}', email);
+  const html = contactTemplate.replace('{{name}}', fullname).replace('{{body}}', body).replace('{{email}}', email);
 
   const mailOptions = {
     from: email,

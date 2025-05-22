@@ -59,7 +59,6 @@
     "open-cli": "^8.0.0",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
-    "raw-loader": "^4.0.2",
     "tailwindcss": "^4.1.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.4",
