@@ -1,18 +1,20 @@
-name: Auto-deploy Vercel via Hook
+name: « Déploiement Vercel »  
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+on:  
+  push:  
+    branches: [ main ]  # Déclenché sur chaque push sur main
 
 jobs:
-  trigger:
+  trigger-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Déclencher la Deploy Hook Vercel
-        uses: fjogeleit/http-request-action@v1.4.3
-        with:
-          url: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
-          method: POST
-          customHeaders: |
-            Content-Type: application/json
+      # (Optionnel) se placer dans le repo si besoin 
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Déclenchement du Deploy Hook Vercel
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          echo "🔔 Déclenchement du hook Vercel..."
+          curl --fail --silent "$VERCEL_DEPLOY_HOOK_URL"
