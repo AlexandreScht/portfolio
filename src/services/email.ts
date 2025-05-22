@@ -1,9 +1,8 @@
 'use server';
 
+import templateRaw from '@/template/contact.html';
 import { type contactSchema } from '@/validators/contact';
-import { readFileSync } from 'fs';
 import nodemailer from 'nodemailer';
-import { join } from 'path';
 import { type z } from 'zod';
 
 export async function sendEmail({ body, email, fullname }: z.infer<typeof contactSchema>) {
@@ -17,10 +16,7 @@ export async function sendEmail({ body, email, fullname }: z.infer<typeof contac
     },
   });
 
-  const filePath = join(process.cwd(), 'public', 'template', 'contact.html');
-  const template = readFileSync(filePath, 'utf-8');
-
-  const html = template.replace('{{name}}', fullname).replace('{{body}}', body).replace('{{email}}', email);
+  const html = templateRaw.replace('{{name}}', fullname).replace('{{body}}', body).replace('{{email}}', email);
 
   const mailOptions = {
     from: email,

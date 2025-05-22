@@ -10,6 +10,10 @@ const nextConfig = {
       },
     ],
   },
+  webpack(cfg) {
+    cfg.module.rules.push({ test: /\.html$/, loader: 'raw-loader' });
+    return cfg;
+  },
   basePath: '/portfolio',
   assetPrefix: '',
 };
