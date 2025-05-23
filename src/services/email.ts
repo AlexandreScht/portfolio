@@ -10,11 +10,16 @@ export async function sendEmail({ body, email, fullname }: z.infer<typeof contac
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT) || 587,
     secure: false,
+    tls: {
+      rejectUnauthorized: false,
+    },
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
     },
   });
+
+  await transporter.verify();
 
   const html = contactTemplate.replace('{{name}}', fullname).replace('{{body}}', body).replace('{{email}}', email);
 

@@ -78,8 +78,6 @@ export default function Home() {
                 >
                   <div className="h-48 w-full bg-accent flex justify-center items-center overflow-hidden relative">
                     {v?.picture?.length ? (
-                      // <Image src={`/api/proxy-image?url=${encodeURIComponent(v.picture[0])}`} alt={`${v.title} project picture`} fill />
-                   
                       <Image src={v.picture[0].replace(/=w\d+-h\d+-s-no-gm/, '=s1600')} alt={`${v.title} project picture`} fill />
                     ) : (
                       <FiCameraOff className="w-16 h-16 text-default-text/75" />

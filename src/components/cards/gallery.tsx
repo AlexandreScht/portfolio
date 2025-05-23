@@ -22,7 +22,7 @@ export function Gallery({ breakpoints, children, ...props }: Cards.Gallery) {
               <Image
                 key={index}
                 crossOrigin={undefined}
-                src={src as string}
+                src={(src as string).replace(/=w\d+-h\d+-s-no-gm/, '=s1600')}
                 alt={(iAlt ?? iAlt) as string}
                 fill={fill}
                 width={(width ?? iWidth) as any}
