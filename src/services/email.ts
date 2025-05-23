@@ -1,6 +1,6 @@
 'use server';
 
-import contactTemplate from '@/template/contactTemplate';
+import { contactTemplate } from '@/template/contactTemplate';
 import { type contactSchema } from '@/validators/contact';
 import nodemailer from 'nodemailer';
 import { type z } from 'zod';
