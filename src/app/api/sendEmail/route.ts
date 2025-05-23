@@ -9,7 +9,7 @@ import { type z } from 'zod';
 export async function POST(req: Request) {
   const { body, email, fullname } = (await req.json()) as z.infer<typeof contactSchema>;
 
-  const templatePath = path.join(process.cwd(), 'src', 'template', 'contact.html');
+  const templatePath = path.join(process.cwd(), 'public', 'template', 'contact.html');
   let html = await fs.readFile(templatePath, 'utf8');
   html = html
     .replace(/{{name}}/g, fullname)
