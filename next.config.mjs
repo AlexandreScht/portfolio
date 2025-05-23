@@ -11,6 +11,9 @@ const nextConfig = {
       },
     ],
   },
+  outputFileTracingIncludes: {
+    'app/api/sendEmail/route': ['./public/template/contact.html'],
+  },
   basePath: '/portfolio',
   assetPrefix: '',
 };
