@@ -1,7 +1,6 @@
 'use client';
 
 import { useDevice } from '@/hooks/useDevice';
-import { sendEmail } from '@/services/email';
 import { contactSchema } from '@/validators/contact';
 import { Button, cn } from '@heroui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -26,10 +25,19 @@ export default function ContactForm() {
     reValidateMode: 'onChange',
   });
 
+  const handleSendEmail = useCallback(async (data: ContactFormData) => {
+    const res = await fetch('/portfolio/api/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (!res?.ok) throw new Error();
+  }, []);
+
   const onSubmit: SubmitHandler<ContactFormData> = useCallback(
     async data => {
       try {
-        await sendEmail(data);
+        await handleSendEmail(data);
         Toastify({
           text: '✓ Mail envoyé avec succès',
           duration: 3000,
