@@ -29,6 +29,7 @@
 
 - 1. - In the [src/config] folder, you’ll find files where you can add your name, experiences, projects, and more.
      * Keep the same file names and structure so the code can read your data correctly.
+     * For the Job and About Me sections, use the same logic to naming your key than you will have bellow in step #2.2 to name your cv or you can put a "default" key with your text
 
 - 2. - In the folder [public/pdf] you have to delete all the pdf file and replace by your pdf. Then rename your pdf like this rule:
 

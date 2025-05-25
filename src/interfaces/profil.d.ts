@@ -10,6 +10,11 @@ export namespace Profile {
     theme: (typeof categories)[number][];
   }
 
+  export interface variant {
+    default: string;
+    [key?: string]: string;
+  }
+
   type SkillName = (typeof skills)[number]['name'];
 
   export interface project {

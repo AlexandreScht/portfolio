@@ -9,11 +9,18 @@ import SkillList from '@/components/lists/skill';
 import { aboutMe, fullName, job } from '@/config/profile';
 import projects from '@/config/projects';
 import skills from '@/config/skills';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiCameraOff } from 'react-icons/fi';
 
-export default function Home() {
+export default async function Home() {
+  const headersList = await headers();
+  const host = headersList.get('host') || '';
+  const subdomain = host.split('.')[0].split('-')[0];
+
+  const jobTitle = job[subdomain as keyof typeof job] || job.default;
+  const aboutMeText = aboutMe[subdomain as keyof typeof aboutMe] || aboutMe.default;
   return (
     <>
       <section id="home" className="min-h-screen separator flex items-center relative overflow-hidden home">
@@ -23,7 +30,7 @@ export default function Home() {
           </div>
           <div className="flex-1 text-center md:text-left order-2 md:order-1">
             <h1 className="text-[36px] md:text-[48px] lg:text-[56px] font-bold mb-6 md:mb-10 dark:text-default-text">{fullName}</h1>
-            <p className="text-xl md:text-[22px] lg:text-2xl text-default-text dark:text-muted mb-6 md:mb-8">{job}</p>
+            <p className="text-xl md:text-[22px] lg:text-2xl text-default-text dark:text-muted mb-6 md:mb-8">{jobTitle}</p>
             <Link
               href="#projects"
               className="inline-block p-[0.8rem_1.8rem] md:p-[0.9rem_2rem] lg:p-[1rem_2rem] bg-primary text-white no-underline rounded-lg font-medium transition-colors duration-300 ease-in border-none cursor-pointer hover:bg-secondary"
@@ -35,7 +42,7 @@ export default function Home() {
       </section>
       <AnimatedSection id="about" className="separator">
         <h2 className="subtitle">À propos de moi</h2>
-        <p className="text-default-text dark:text-muted text-center text-lg md:text-[20px] lg:text-xl px-4 md:px-12 lg:px-20">{aboutMe}</p>
+        <p className="text-default-text dark:text-muted text-center text-lg md:text-[20px] lg:text-xl px-4 md:px-12 lg:px-20">{aboutMeText}</p>
       </AnimatedSection>
       <AnimatedSection id="skills" className="separator px-4 md:px-12 lg:px-20">
         <h2 className="subtitle">Mes Compétences</h2>
