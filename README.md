@@ -31,16 +31,16 @@
      * Keep the same file names and structure so the code can read your data correctly.
      * For the Job and About Me sections, use the same logic to naming your key than you will have bellow in step #2.2 to name your cv or you can put a "default" key with your text
 
-- 2. - In the folder [public/pdf] you have to delete all the pdf file and replace by your pdf. Then rename your pdf like this rule:
+- 2. - In the folder [public/pdf] you have to delete all the pdf file and replace by your pdf in the correct folder. Then rename your folder who contain your pdf like this rule:
 
 * If you only need one PDF for your site:
-  Name your file default-cv.pdf
+  Name your folder default and put your pdf inside
   Use this address for your site: <username>.vercel.app/portfolio
 
 * If you want a different PDF depending on the address:
 
 - Take the first part of your site’s address (before the first “-”).
-- Name each PDF to match that first part + “-cv.pdf”.
+- Name each PDF folder's have to match that first part.
 
 For example:
 Site addresses:
@@ -50,12 +50,12 @@ Site addresses:
 
 PDF files:
 
-1. dev-cv.pdf
-2. sec-cv.pdf
+1. [public/pdf/dev] and then put you pdf file inside the folder [dev]
+2. [public/pdf/sec] and then put you pdf file inside the folder [sec]
 
 You need to respect this way:
 URL: <pdf-name>-<username>.vercel.app/portfolio
-PDF: <pdf-name>-cv.pdf
+PDF: <pdf-name>/your_pdf_file
 
 - 3. - In the [public/template] folder, there is an [contact.html] file that defines the email you’ll receive when someone contacts you. You can customize this template, but you must use these placeholders:
 
