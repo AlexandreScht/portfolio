@@ -13,7 +13,7 @@ export default function HeaderBar() {
     if (typeof window !== 'undefined') {
       const host = window.location.hostname;
       const firstPart = host.split('-')[0];
-      setSubdomain(firstPart);
+      setSubdomain(firstPart ?? 'default');
     }
   }, []);
 

@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   const transporter = createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT) || 587,
-    secure: false,
+    secure: Number(process.env.EMAIL_PORT) === 465,
     tls: {
       rejectUnauthorized: false,
     },
