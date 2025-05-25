@@ -55,10 +55,10 @@ export default function HeaderBar() {
                 href="/api/downloadCv"
                 download
                 prefetch={false}
-                className="bg-primary text-white pl-2.5 pr-4 py-2 rounded-lg inline-flex items-center gap-2 transition-all duration-300 hover:bg-secondary hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,102,255,0.2)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+                className="group bg-primary text-white pl-2.5 pr-4 py-2 rounded-lg inline-flex items-center gap-2 transition-all duration-300 hover:bg-secondary hover:shadow-[0_4px_12px_rgba(0,102,255,0.2)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <LuDownload className="text-xl lg:text-2xl" /> Mon CV
+                <LuDownload className="text-xl lg:text-2xl download-icon" /> Mon CV
               </Link>
             </li>
           </ul>

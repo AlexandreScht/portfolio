@@ -4,11 +4,26 @@ import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import path from 'path';
 
+function encodeFilename(filename: string) {
+  const encodedFilename = encodeURIComponent(filename);
+
+  const asciiFilename = filename
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9\-_.]/g, '')
+    .replace(/\s+/g, '_');
+
+  return {
+    ascii: asciiFilename,
+    encoded: encodedFilename,
+  };
+}
+
 export async function GET() {
   const headersList = await headers();
   const host = headersList.get('host') || '';
   const subdomain = host.split('.')[0].split('-')[0] ?? 'default';
-  const pdfPath = subdomain.startsWith('localhost') ? 'default' : subdomain;
+  const pdfPath = subdomain.startsWith('localhost') ? 'sec' : subdomain;
   const dir = path.join(process.cwd(), 'public', 'pdf', pdfPath);
 
   const files = await fs.readdir(dir);
@@ -17,6 +32,8 @@ export async function GET() {
   if (!pdf) {
     return NextResponse.json({ error: 'Aucun PDF trouvé' }, { status: 404 });
   }
+
+  const { ascii, encoded } = encodeFilename(pdf);
 
   const filePath = path.join(dir, pdf);
   const stream = createReadStream(filePath);
@@ -38,7 +55,10 @@ export async function GET() {
   return new NextResponse(readableStream, {
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename="${pdf}"`,
+      'Content-Disposition': `attachment; filename="${ascii}"; filename*=UTF-8''${encoded}`,
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      Pragma: 'no-cache',
+      Expires: '0',
     },
   });
 }
