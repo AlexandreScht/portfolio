@@ -87,7 +87,7 @@ export default function ContactForm() {
         }).showToast();
       }
     },
-    [deviceType, reset],
+    [deviceType, handleSendEmail, reset],
   );
 
   return (
