@@ -7,7 +7,20 @@ import { IoLogoIonic } from 'react-icons/io';
 import { IoLogoFigma, IoLogoJavascript } from 'react-icons/io5';
 import { PiFileSql, PiNetworkSlashDuotone } from 'react-icons/pi';
 import { RiNextjsFill, RiTailwindCssFill } from 'react-icons/ri';
-import { SiAxios, SiExpress, SiJest, SiJira, SiKnexdotjs, SiMongodb, SiNuxtdotjs, SiPhpmyadmin, SiPostman, SiTypescript } from 'react-icons/si';
+import {
+  SiAxios,
+  SiExpress,
+  SiJest,
+  SiJira,
+  SiK3S,
+  SiKnexdotjs,
+  SiKubernetes,
+  SiMongodb,
+  SiNuxtdotjs,
+  SiPhpmyadmin,
+  SiPostman,
+  SiTypescript,
+} from 'react-icons/si';
 import { TbBrandReactNative, TbBrandSocketIo } from 'react-icons/tb';
 
 export const categories = [
@@ -22,7 +35,9 @@ export const categories = [
 const skills = [
   { name: 'Linux', logo: FaLinux, theme: ['Infrastructure & DevOps'] },
   { name: 'GNS3', logo: PiNetworkSlashDuotone, theme: ['Infrastructure & DevOps'] },
+  { name: 'K3S', logo: SiK3S, theme: ['Infrastructure & DevOps'] },
   { name: 'Docker', logo: FaDocker, theme: ['Infrastructure & DevOps'] },
+  { name: 'kubernetes', logo: SiKubernetes, theme: ['Infrastructure & DevOps'] },
   { name: 'HTML5', logo: FaHtml5, theme: ['Langages de programmation'] },
   { name: 'CSS3', logo: FaCss3Alt, theme: ['Langages de programmation'] },
   { name: 'Python', logo: FaPython, theme: ['Langages de programmation'] },
