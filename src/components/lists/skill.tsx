@@ -39,7 +39,7 @@ export default function SkillList({ className }: { className?: string }) {
                   className="inline-flex cursor-default items-center space-x-2 py-2 px-4 text-[0.9rem] transition-all duration-300 ease-in border-1 border-border/70 skill-shadow-card hover:bg-card-hover rounded-md hover:-translate-y-0.5"
                 >
                   {Logo && <Logo className="text-[1rem] mr-2 text-primary" />}
-                  <span>{name}</span>
+                  <span className="w-full text-center">{name}</span>
                 </div>
               ))}
             </div>
