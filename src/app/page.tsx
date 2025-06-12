@@ -50,18 +50,22 @@ export default async function Home() {
           <>
             <Carousel className="w-full py-1" speed={4000}>
               {skills.map(({ name, logo: Logo }) => (
-                <div className="text-center p-4 md:p-6 lg:p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60">
+                <div className="py-4 md:py-6 lg:py-8 bg-card-bg rounded-2xl flex flex-col items-center dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60">
                   <Logo className="text-4xl md:text-[42px] lg:text-5xl text-primary mb-2 md:mb-4 mx-auto" />
                   <h3 className="text-lg md:text-[19px] lg:text-xl">{name}</h3>
                 </div>
               ))}
             </Carousel>
             {(skills?.length ?? 0) > 14 && (
-              <Carousel className="w-full mt-5 py-1" speed={4000} autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}>
+              <Carousel
+                className="w-full mt-8 lg:mt-9 py-1"
+                speed={4000}
+                autoplay={{ delay: 0, disableOnInteraction: false, reverseDirection: true }}
+              >
                 {skills.reverse().map(({ name, logo: Logo }) => (
-                  <div className="text-center p-4 md:p-6 lg:p-8 bg-card-bg rounded-2xl dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60 !cursor-grab">
+                  <div className="py-4 md:py-6 lg:py-8 bg-card-bg rounded-2xl flex flex-col items-center dark:border-1 dark:border-border/70 skill-shadow-card hover:bg-card-hover dark:hover:bg-card-hover/60 !cursor-grab">
                     <Logo className="text-4xl md:text-[42px] lg:text-5xl text-primary mb-2 md:mb-4 mx-auto" />
-                    <h3 className="text-lg md:text-[19px] lg:text-xl">{name}</h3>
+                    <h3 className="text-lg md:text-[19px] lg:text-xl w-full text-center">{name}</h3>
                   </div>
                 ))}
               </Carousel>

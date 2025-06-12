@@ -28,8 +28,11 @@ export default function Carousel({ children, className, ...other }: Cards.Carous
       slidesPerView: 2,
       spaceBetween: 40,
       breakpoints: {
-        1440: {
+        1600: {
           slidesPerView: 7,
+        },
+        1440: {
+          slidesPerView: 6,
         },
         1024: {
           slidesPerView: 5,
