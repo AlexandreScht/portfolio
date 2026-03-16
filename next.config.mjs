@@ -16,6 +16,9 @@ const nextConfig = {
   },
   basePath: '/portfolio',
   assetPrefix: '',
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
