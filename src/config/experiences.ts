@@ -55,7 +55,7 @@ export const experiences = [
     startDate: '2022',
     endDate: '2023',
     description:
-      'Ayant rejoint une équipe composée uniquement de moi-même et d’une autre alternante, j’ai contribué à la création d’un site de recrutement complet. J’ai imaginé et développé une « cvthèque » dotée d’un moteur de filtres avancé pour aider les recruteurs à cibler rapidement les profils candidats recherchés. J’ai également conçu la page profil candidat avec un chat en temps réel et un calendrier de prise de rendez-vous pour les entretiens, incluant la gestion des créneaux, les annulations et la génération automatique de salles Google Meet. Pour fluidifier la communication, j’ai mis en place l’envoi d’e-mails via Nodemailer. Il m’a également été demandé de concevoir un cron-job personnalisable permettant aux recruteurs d’être alertés des nouveaux CV correspondant à leurs critères. Enfin, j’ai déployé un espace admin pour gérer les différents comptes et corrigé de nombreux ajustements d’UI et de responsive sur l’ensemble du site.',
+      'Ayant rejoint une équipe composée uniquement de moi-même et d’une autre alternante, j’ai contribué à la création d’un site de recrutement complet. J’ai imaginé et développé une « cvthèque » dotée d’un moteur de filtres avancé pour aider les recruteurs à cibler rapidement les profils candidats recherchés. J’ai également conçu la page profil candidat avec un chat en temps réel et un calendrier de prise de rendez-vous pour les entretiens, incluant la gestion des créneaux, les annulations et la génération automatique de salles Google Meet. Pour fluidifier la communication, j’ai mis en place l’envoi d’e-mails via Nodemailer. Il m’a également été demandé de concevoir un cron-job personnalisable permettant aux recruteurs d’être alertés des nouveaux CV correspondant à leurs critères. Enfin, j’ai déployé un espace admin pour gérer les différents comptes et effectué de nombreux ajustements d’UI et de responsive sur l’ensemble du site.',
     skills: ['Vue.js', 'Node.js', 'Express.js', 'Nuxt.js', 'MongoDB', 'Git', 'Axios', 'JavaScript', 'Jira/Trello'],
     achievements: [
       'Mise en place d’une cvthèque avec filtres dynamiques personnalisés',
@@ -72,7 +72,7 @@ export const experiences = [
     endDate: '2022',
     description:
       'J’ai conçu et développé une plateforme de QCM en ligne de A à Z, destinée aux professeurs et aux élèves. Les enseignants disposent d’un espace pour créer des questionnaires datés et les attribuer à des groupes ou classes d’élèves, tandis que ces derniers s’authentifient pour passer leurs tests et ne voient leur note qu’une fois que tous les participants ont terminé. Tout au long de l’année, chaque élève peut consulter son historique de notes et sa moyenne, et les professeurs suivent en temps réel la progression de leurs élèves. Enfin, un back-office administrateur permet de gérer l’ensemble des comptes et les permissions associées.',
-    skills: ['HTML5', 'CSS3', 'PHP', 'SQL', 'JavaScript', 'Ajax', 'PhpMyAdmin '],
+    skills: ['HTML5', 'CSS3', 'PHP', 'PostgreSql', 'JavaScript'],
     achievements: [
       'Conception d’une interface destinée aux professeurs pour créer des QCM par thème et par niveau, et les attribuer à des groupes ou classes d’élèves.',
       'Blocage des QCM pour les élèves tant que la date de début fixée par le professeur n’est pas atteinte.',

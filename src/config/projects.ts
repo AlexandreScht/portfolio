@@ -94,7 +94,7 @@ const projects = [
     date: '2024',
     resume: 'Application web responsive de sourcing B2B centralisé',
     description:
-      'Co-fondateur & fullstack developer de Talaryo, j’ai conçu et déployé une plateforme B2B from scratch sur VPS, conteneurisée avec Docker, dotée d’un back-end RESTful sécurisé (JWT/OAuth2) et d’un système d’authentification robuste. J’y ai intégré un moteur de recherche multi-critères, des API optimisées et un back-office analytique, le tout orienté performance, scalabilité et qualité d’expérience utilisateur.',
+      'Co-fondateur & développeur fullstack de Talaryo, j’ai conçu et déployé une plateforme B2B from scratch sur VPS, conteneurisée avec Docker, dotée d’un back-end RESTful sécurisé (JWT/OAuth2) et d’un système d’authentification robuste. J’y ai intégré un moteur de recherche multi-critères, des API optimisées et un back-office analytique, le tout orienté performance, scalabilité et qualité d’expérience utilisateur.',
     link: { icon: FaGithub, label: 'GitHub', url: 'https://github.com/AlexandreScht/Talaryo.git' },
     picture: [
       'https://lh3.googleusercontent.com/pw/AP1GczNJvKZgsmRjASYuzokMMc7xbzT5dTgZ946tV82lyj4jEXakSjMXe2SO0tGjCMmW8W8Z1sBP6ZjcdzDKwlLOJdHesi85t3-SK1W21dIQB-BvQRK89qoVxs0CrCdYttTgaIDmD6uzkwIrvNQWPr3vR0u7=w1376-h640-s-no-gm?authuser=0',
@@ -119,12 +119,12 @@ const projects = [
     types: ['Application Web', 'sourcing B2B', 'IA'],
     features: [
       'Utilisation de redis en cas de crash ou de redémarrage pour récupérer les données.',
-      'Communication écurisée et rapide entre front, back et la BD avec un système de cache.',
+      'Communication sécurisée et rapide entre le front, le back et la BD avec un système de cache.',
       'Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.',
       'Recherche multi-critères alimentée par l’IA, pour un résultat à la fois rapide et pertinent.',
       'Bonnes pratiques et tests unitaires mis en place assurant la fiabilité du code.',
       'Déploiement automatisé et sécurisé avec Docker.',
-      'Site responsive et conforme aux bonnes pratiques d’accessibilité. ',
+      'Site responsive et conforme aux bonnes pratiques d’accessibilité.',
     ],
   },
   {
@@ -139,10 +139,10 @@ const projects = [
     types: ['Template', 'Fullstack'],
     features: [
       'Utilisation de redis comme mémoire temporaire.',
-      'Communication écurisée et rapide entre front, back et la BD avec un système de cache.',
+      'Communication sécurisée et rapide entre le front, le back et la BD avec un système de cache.',
       'Authentification par OAuth 2.0, avec option 2FA pour plus de sécurité.',
       'Utilisation de Drizzle comme ORM et Query builder pour communiquer avec la BD.',
-      'Mise en place de tests unitaires et de bonne pratiques.',
+      'Mise en place de tests unitaires et de bonnes pratiques.',
       'WebSocket sécurisé pour la communication temps réel.',
       'Store global Zustand pour gérer l’état depuis n’importe quelle page',
     ],
@@ -177,7 +177,7 @@ const projects = [
       'https://lh3.googleusercontent.com/pw/AP1GczNnWb4qrSZ4comys07kAXluvRYOdRAwhjpjrO0ub7mxRH3BvfKwPCh9s5tJjI_XLEG_ajzdotZTb1sibEmWW1NNPPtoUgklzVrpe4X5JALbMYGmwtPKSgIApDjd9mZvSxKggoetTLtJks24nriNi_Qe=w1897-h955-s-no-gm?authuser=0',
     ],
     skills: ['Next.js', 'TypeScript', 'Tailwindcss'],
-    types: ['Site Static'],
+    types: ['Site Statique'],
     features: [
       'Chargement des questions depuis un fichier JSON local.',
       'Génération aléatoire des questions du QCM.',
