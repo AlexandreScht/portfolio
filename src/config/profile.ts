@@ -1,5 +1,12 @@
 import { type Profile } from '@/interfaces/profil';
+import { type Metadata } from 'next';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+export const metadataProps: Metadata = {
+  title: 'Alexandre SCHECHT — Portfolio Alternant DevOps & Cloud',
+  description:
+    "Portfolio professionnel d'Alexandre SCHECHT, Alternant Ingénieur DevOps & Cloud passionné par l'innovation logicielle et les architectures modernes.",
+};
 
 export const fullName: string = 'Alexandre SCHECHT';
 export const jobType: string = 'Alternance';

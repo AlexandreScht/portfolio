@@ -1,16 +1,12 @@
 import HeaderBar from '@/components/navigations/headerBar';
-import { fullName, socialLinks } from '@/config/profile';
+import { fullName, metadataProps, socialLinks } from '@/config/profile';
 import ThemeProvider from '@/hooks/ThemeProvider';
 import UiProviders from '@/hooks/UiProvider';
 import '@/styles/global.css';
 import type { Metadata } from 'next';
 import React from 'react';
 
-export const metadata: Metadata = {
-  title: 'Alexandre SCHECHT — Portfolio Développeur Full Stack',
-  description:
-    "Portfolio professionnel d'Alexandre SCHECHT, développeur Full Stack passionné par l'innovation logicielle et les architectures modernes. Next.js, Node.js, TypeScript, Docker.",
-};
+export const metadata: Metadata = metadataProps;
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
