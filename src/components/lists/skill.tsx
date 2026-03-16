@@ -3,19 +3,18 @@
 import skills, { categories } from '@/config/skills';
 import { type Profile } from '@/interfaces/profil';
 import { cn } from '@heroui/react';
-import { useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 export default function SkillList({ className }: { className?: string }) {
   type GroupedSkills = Record<(typeof categories)[number], Profile.skill[]>;
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>(categories[0]);
 
   const groupedByTheme = useMemo<GroupedSkills>(() => {
-    // 1) Créez un nouvel objet vide avec toutes les clés initialisées
     const acc: GroupedSkills = categories.reduce((obj, theme) => {
       obj[theme] = [];
       return obj;
     }, {} as GroupedSkills);
 
-    // 2) Poussez chaque skill dans la bonne catégorie
     skills.forEach(skill => {
       skill.theme.forEach(theme => {
         acc[theme].push(skill);
@@ -23,29 +22,42 @@ export default function SkillList({ className }: { className?: string }) {
     });
 
     return acc;
-  }, []); // reboucle quand `skills` change
+  }, []);
+
+  const handleCategoryChange = useCallback((cat: (typeof categories)[number]) => setActiveCategory(cat), []);
 
   return (
     <div className={cn('m-[0_auto] w-full', className)}>
-      {categories.map(category => {
-        const items = groupedByTheme[category];
-        return (
-          <article key={category} className="mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-default-text">{category}</h3>
-            <div className="flex flex-wrap gap-4">
-              {items.map(({ name, logo: Logo }) => (
-                <div
-                  key={name}
-                  className="inline-flex cursor-default items-center space-x-2 py-2 px-4 text-[0.9rem] transition-all duration-300 ease-in border-1 border-border/70 skill-shadow-card hover:bg-card-hover rounded-md hover:-translate-y-0.5"
-                >
-                  {Logo && <Logo className="text-[1rem] mr-2 text-primary" />}
-                  <span className="w-full text-center">{name}</span>
-                </div>
-              ))}
-            </div>
-          </article>
-        );
-      })}
+      {/* Category Tabs */}
+      <div className="flex flex-wrap gap-2 md:gap-3 mb-10 justify-center">
+        {categories.map(category => (
+          <button
+            key={category}
+            onClick={() => handleCategoryChange(category)}
+            className={cn(
+              'px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer border',
+              activeCategory === category
+                ? 'bg-primary text-white border-primary shadow-[0_4px_16px_var(--color-primary-glow)]'
+                : 'bg-glass-bg border-glass-border text-muted hover:text-default-text hover:border-primary/30 dark:hover:text-white',
+            )}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Skills Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {groupedByTheme[activeCategory].map(({ name, logo: Logo }) => (
+          <div
+            key={name}
+            className="group glass-card !rounded-xl !p-5 flex flex-col items-center gap-3 hover:!border-primary/40 hover:!shadow-[0_8px_24px_var(--color-primary-glow)] hover:-translate-y-1 cursor-default"
+          >
+            {Logo && <Logo className="text-3xl text-primary group-hover:scale-110 transition-transform duration-300" />}
+            <span className="text-sm font-semibold text-center text-default-text dark:text-white/90">{name}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

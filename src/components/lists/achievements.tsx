@@ -22,7 +22,7 @@ export default function Achievements({ achievements }: AchievementsProps) {
             key={i}
             className="flex items-center !h-22 text-default-text text-sm !bg-default-bg/80 border-shadow border-1 px-4 py-1.5 rounded-lg"
           >
-            <ScrollShadow className="h-full w-full overflow-y-auto" size={5}>
+            <ScrollShadow className="h-full w-full overflow-y-auto scrollbar-subtle" size={5}>
               <span className="text-muted">{item}</span>
             </ScrollShadow>
           </SwiperSlide>

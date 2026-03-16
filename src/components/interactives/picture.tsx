@@ -53,6 +53,13 @@ export default function InteractiveImage({
         style={{ transitionDuration: `${transitionDuration}ms` }}
         fill
       />
+      {/* Radial vignette for smooth edge blending */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, transparent 60%, var(--color-accent) 100%)',
+        }}
+      />
     </div>
   );
 }

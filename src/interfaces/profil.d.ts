@@ -15,6 +15,19 @@ export namespace Profile {
     [key?: string]: string;
   }
 
+  export type aboutMe = {
+    description: string;
+    xpYears: string;
+    realisedProjects: string;
+    skills: string;
+  };
+
+  export interface socialLink {
+    icon: IconType;
+    label: string;
+    url: string;
+  }
+
   type SkillName = (typeof skills)[number]['name'];
 
   export interface project {
@@ -30,12 +43,12 @@ export namespace Profile {
   }
 
   export interface formation {
-    title: string;
+    title: { label: string; link?: string };
     school: string;
     startDate: fromYear;
     endDate?: toYear;
     description: string;
-    certifications?: string[];
+    certifications?: { label: string; link?: string }[];
   }
 
   export interface experience {

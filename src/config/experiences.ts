@@ -2,6 +2,38 @@ import { type Profile } from '@/interfaces/profil';
 
 export const experiences = [
   {
+    title: 'Alternant - Ingénieur Sécurité Cloud & DevOps',
+    company: 'FFRandonnée',
+    startDate: '2025',
+    endDate: '2026',
+    description:
+      'En rejoignant la DSI de la FFRandonnée, j’ai pris en charge la modernisation et la sécurisation de l’infrastructure Cloud sur AWS. J’ai commencé par durcir les environnements en configurant des règles strictes (IAM, VPC, WAF) et en automatisant les déploiements grâce à l’Infrastructure as Code avec Terraform. Parallèlement, j’ai participé à la refonte de l’application web modulaire (SGVF) en développant des API sécurisées pour interconnecter divers outils SaaS, tels que le CRM de la fédération et Microsoft 365, tout en gérant les flux d’authentification (SSO). Enfin, j’ai mis en place et optimisé nos pipelines CI/CD sur GitLab et GitHub pour intégrer les bonnes pratiques DevSecOps, et j’ai déployé des outils de supervision pour anticiper les incidents et garantir la haute disponibilité de nos services.',
+    skills: [
+      'AWS',
+      'Terraform',
+      'CI/CD',
+      'Bash',
+      'Node.js',
+      'React',
+      'PostgreSql',
+      'GraphQL',
+      'Docker',
+      'Teleport',
+      'PfSense',
+      'kubernetes',
+      'K3S',
+      'Grafana',
+      'Prometheus',
+    ],
+    achievements: [
+      'Sécurisation et automatisation de l’infrastructure Cloud AWS via Terraform (IaC)',
+      'Développement d’API sécurisées pour l’interconnexion du SI avec des outils SaaS (CRM, Microsoft 365, SSO)',
+      'Participation à la refonte full-stack de l’application web modulaire fédérale (SGVF)',
+      'Mise en place de pipelines CI/CD fiables intégrant les principes du DevSecOps',
+      'Déploiement de solutions de supervision pour garantir la disponibilité continue des plateformes',
+    ],
+  },
+  {
     title: 'Alternant - Développeur Web Full-Stack & DevOps',
     company: 'Mes Allocs',
     startDate: '2023',

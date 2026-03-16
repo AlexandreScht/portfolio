@@ -1,40 +1,45 @@
 export const runtime = 'nodejs';
-import { type contactSchema } from '@/validators/contact';
-import fs from 'fs/promises';
+import { contactSchema } from '@/validators/contact';
 import { NextResponse } from 'next/server';
-import { createTransport } from 'nodemailer';
-import path from 'path';
-import { type z } from 'zod';
 
 export async function POST(req: Request) {
-  const { body, email, fullname } = (await req.json()) as z.infer<typeof contactSchema>;
+  try {
+    const rawBody = await req.json();
+    const result = contactSchema.safeParse(rawBody);
 
-  const templatePath = path.join(process.cwd(), 'public', 'template', 'contact.html');
-  let html = await fs.readFile(templatePath, 'utf8');
-  html = html
-    .replace(/{{name}}/g, fullname)
-    .replace(/{{body}}/g, body)
-    .replace(/{{email}}/g, email);
+    if (!result.success || !process.env.NTFY_URL) {
+      return NextResponse.json({ error: 'Données invalides', details: result?.error?.errors }, { status: 400 });
+    }
 
-  const transporter = createTransport({
-    host: process.env.EMAIL_HOST,
-    port: Number(process.env.EMAIL_PORT) || 587,
-    secure: Number(process.env.EMAIL_PORT) === 465,
-    tls: {
-      rejectUnauthorized: false,
-    },
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
+    const { body, email, fullname } = result.data;
 
-  await transporter.sendMail({
-    from: process.env.EMAIL_ADDRESS,
-    to: process.env.EMAIL_ADDRESS,
-    subject: `Portfolio - Nouveau message de ${fullname}`,
-    html,
-  });
+    const host = req.headers.get('host') || 'Inconnu';
+    let siteName = 'Local';
+    if (host !== 'Inconnu') {
+      // Ex: "sec-aschect.vercel.app" -> "sec-aschect" -> "sec"
+      siteName = host.split('.')[0].split('-')[0].toUpperCase();
+    }
 
-  return NextResponse.json({ status: 'Email sent' });
+    const ntfyUrl = process.env.NTFY_URL;
+
+    const message = `Nom: ${fullname}\nEmail: ${email}\n\nMessage:\n${body}`;
+
+    const ntfyRes = await fetch(ntfyUrl, {
+      method: 'POST',
+      body: message,
+      headers: {
+        Title: `Nouveau message - Portfolio ${siteName}`,
+        Tags: `envelope,briefcase,${siteName.toLowerCase()}`,
+      },
+    });
+
+    if (!ntfyRes.ok) {
+      throw new Error(`Erreur Ntfy: ${ntfyRes.status}`);
+    }
+
+    return NextResponse.json({ status: 'Notification sent' });
+  } catch (error) {
+    console.error("Erreur lors de l'envois de la notification:", error);
+    return NextResponse.json({ error: 'Erreur interne du serveur' }, { status: 500 });
+  }
 }

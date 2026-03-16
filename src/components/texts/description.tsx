@@ -8,7 +8,7 @@ export default function Description({ description }: { description: string }) {
   return (
     <>
       {device === 'mobile' ? (
-        <ScrollShadow className="md:hidden max-h-[150px] overflow-y-auto">
+        <ScrollShadow className="md:hidden max-h-[150px] overflow-y-auto scrollbar-subtle">
           <p className="text-muted pl-3 leading-6 md:leading-7 text-sm md:text-base">{description}</p>
         </ScrollShadow>
       ) : (

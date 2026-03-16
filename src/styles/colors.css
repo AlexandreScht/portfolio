@@ -1,26 +1,44 @@
 @theme {
-  --color-primary: #0066ff;
-  --color-secondary: #1a75ff;
-  --color-default-text: #0a1930;
-  --color-default-bg: #ffffff;
-  --color-muted: #5f6469;
-  --color-accent: #e6f0ff;
+  /* ─── Primary Palette (Blue) ─── */
+  --color-primary: #2563eb;
+  --color-secondary: #3b82f6;
+  --color-primary-glow: rgba(37, 99, 235, 0.2);
+
+  /* ─── Text ─── */
+  --color-default-text: #0f172a;
+  --color-muted: #64748b;
+
+  /* ─── Backgrounds ─── */
+  --color-default-bg: #f8fafc;
+  --color-accent: #eff6ff;
   --color-card-bg: #ffffff;
-  --color-card-hover: #f8fafc;
-  --color-border: rgba(0, 0, 0, 0.4);
-  --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-gradient-1: #4d94ff80;
-  --color-gradient-2: #00ccff80;
-  --color-gradient-3: #0052cc40;
+  --color-card-hover: #f1f5f9;
+
+  /* ─── Glass ─── */
+  --color-glass-bg: rgba(255, 255, 255, 0.65);
+  --color-glass-border: rgba(37, 99, 235, 0.1);
+
+  /* ─── Borders & Shadows ─── */
+  --color-border: rgba(0, 0, 0, 0.06);
+  --color-shadow: rgba(37, 99, 235, 0.07);
+
+  /* ─── Gradients ─── */
+  --color-gradient-1: rgba(37, 99, 235, 0.12);
+  --color-gradient-2: rgba(59, 130, 246, 0.12);
+  --color-gradient-3: rgba(96, 165, 250, 0.08);
+  --color-gradient-4: rgba(37, 99, 235, 0.1);
+  --color-gradient-5: rgba(29, 78, 216, 0.08);
+  --color-gradient-start: #eff6ff;
+  --color-gradient-end: #f8fafc;
   --color-gradient-pattern:
     radial-gradient(circle at 15% 25%, var(--gradient-1) 0%, transparent 55%),
     radial-gradient(circle at 85% 75%, var(--gradient-2) 0%, transparent 65%),
     radial-gradient(circle at 50% 50%, var(--gradient-3) 0%, transparent 70%);
-  --color-gradient-4: #66a3ff60;
-  --color-gradient-5: #0099ff40;
-  --color-gradient-start: #e6f0ff;
-  --color-gradient-end: #ffffff;
+
+  /* ─── Spacing ─── */
   --spacing-spacer: 5rem 2rem;
+
+  /* ─── Status ─── */
   --color-error: #dc2626;
   --color-error-toast: #dc2626;
   --color-error-border: #ef4444;
@@ -29,23 +47,39 @@
 }
 
 .dark {
+  /* ─── Primary Palette (Blue) ─── */
   --color-primary: #3b82f6;
-  --color-secondary: #3285db;
-  --color-default-text: #f8fafc;
-  --color-muted: #cbd5e1;
-  --color-default-bg: #0c1624;
-  --color-accent: #1e2532;
-  --color-card-bg: #0f1b2f;
-  --color-card-hover: #142136;
-  --color-border: rgba(248, 248, 248, 0.2);
+  --color-secondary: #60a5fa;
+  --color-primary-glow: rgba(59, 130, 246, 0.25);
+
+  /* ─── Text ─── */
+  --color-default-text: #e2e8f0;
+  --color-muted: #94a3b8;
+
+  /* ─── Backgrounds ─── */
+  --color-default-bg: #0b1120;
+  --color-accent: #151e30;
+  --color-card-bg: #111827;
+  --color-card-hover: #1e293b;
+
+  /* ─── Glass ─── */
+  --color-glass-bg: rgba(17, 24, 39, 0.7);
+  --color-glass-border: rgba(59, 130, 246, 0.12);
+
+  /* ─── Borders & Shadows ─── */
+  --color-border: rgba(255, 255, 255, 0.07);
   --color-shadow: rgba(0, 0, 0, 0.35);
-  --color-gradient-1: #46a0ff15;
-  --color-gradient-2: #407dc415;
-  --color-gradient-3: #38b5ff15;
-  --color-gradient-4: #2d4b7420;
-  --color-gradient-5: #162b4d25;
-  --color-gradient-start: #081018;
-  --color-gradient-end: #0e1624;
+
+  /* ─── Gradients ─── */
+  --color-gradient-1: rgba(59, 130, 246, 0.06);
+  --color-gradient-2: rgba(37, 99, 235, 0.06);
+  --color-gradient-3: rgba(96, 165, 250, 0.04);
+  --color-gradient-4: rgba(59, 130, 246, 0.08);
+  --color-gradient-5: rgba(29, 78, 216, 0.06);
+  --color-gradient-start: #0b1120;
+  --color-gradient-end: #0b1120;
+
+  /* ─── Status ─── */
   --color-error: #ce2121;
   --color-error-toast: #b11717;
   --color-error-border: #910c0c;
