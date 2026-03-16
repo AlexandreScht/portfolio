@@ -1,6 +1,5 @@
 export const runtime = 'nodejs';
 import { createReadStream, promises as fs } from 'fs';
-import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import path from 'path';
 
@@ -20,11 +19,7 @@ function encodeFilename(filename: string) {
 }
 
 export async function GET() {
-  const headersList = await headers();
-  const host = headersList.get('host') || '';
-  const subdomain = host.split('.')[0].split('-')[0] ?? 'default';
-  const pdfPath = subdomain.startsWith('localhost') ? 'sec' : subdomain;
-  const dir = path.join(process.cwd(), 'public', 'pdf', pdfPath);
+  const dir = path.join(process.cwd(), 'public');
 
   const files = await fs.readdir(dir);
   const pdf = files.find(f => f.toLowerCase().endsWith('.pdf'));

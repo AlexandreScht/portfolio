@@ -10,11 +10,6 @@ export namespace Profile {
     theme: (typeof categories)[number][];
   }
 
-  export interface variant {
-    default: string;
-    [key?: string]: string;
-  }
-
   export type aboutMe = {
     description: string;
     xpYears: string;

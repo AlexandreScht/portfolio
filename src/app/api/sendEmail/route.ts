@@ -16,8 +16,9 @@ export async function POST(req: Request) {
     const host = req.headers.get('host') || 'Inconnu';
     let siteName = 'Local';
     if (host !== 'Inconnu') {
-      // Ex: "sec-aschect.vercel.app" -> "sec-aschect" -> "sec"
-      siteName = host.split('.')[0].split('-')[0].toUpperCase();
+      // Ex: "sec-aschect.vercel.app" -> "SEC"
+      // Ex: "sec.aschect.fr" -> "SEC"
+      siteName = host.split(/[.-]/)[0].toUpperCase();
     }
 
     const ntfyUrl = process.env.NTFY_URL;

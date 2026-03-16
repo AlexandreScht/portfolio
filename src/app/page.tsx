@@ -7,7 +7,6 @@ import SkillList from '@/components/lists/skill';
 import { aboutMe, email, fullName, job, jobType, localisation, socialLinks, xpYears } from '@/config/profile';
 import projects from '@/config/projects';
 import skills from '@/config/skills';
-import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiCameraOff, FiMail } from 'react-icons/fi';
@@ -15,13 +14,6 @@ import { HiOutlineExternalLink, HiOutlineLocationMarker } from 'react-icons/hi';
 import { MdWorkOutline } from 'react-icons/md';
 
 export default async function Home() {
-  const headersList = await headers();
-  const host = headersList.get('host') || '';
-  const subdomain = host.split('.')[0].split('-')[0];
-
-  const jobTitle = job[subdomain as keyof typeof job] || job.default;
-  const aboutMeData = aboutMe[subdomain as keyof typeof aboutMe] || aboutMe.default;
-
   return (
     <>
       {/* ═══════════════════════════════════ HERO ═══════════════════════════════════ */}
@@ -48,7 +40,7 @@ export default async function Home() {
                 {fullName}
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted mb-4 max-w-lg">{jobTitle}</p>
+            <p className="text-lg md:text-xl text-muted mb-4 max-w-lg">{job}</p>
             <div className="flex items-center gap-2 text-muted text-sm mb-8 justify-center md:justify-start">
               <HiOutlineLocationMarker className="text-primary" />
               <span>{localisation}</span>
@@ -91,7 +83,7 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto px-4">
           {/* Main About Card */}
           <div className="md:col-span-2 glass-card p-8 md:p-10">
-            <p className="text-default-text dark:text-muted text-lg md:text-[1.15rem] leading-8">{aboutMeData}</p>
+            <p className="text-default-text dark:text-muted text-lg md:text-[1.15rem] leading-8">{aboutMe}</p>
           </div>
           {/* Stats Cards */}
           <div className="flex flex-col gap-5">
