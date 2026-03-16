@@ -24,8 +24,8 @@ export function Gallery({ breakpoints, children, ...props }: Cards.Gallery) {
                 src={(src as string).replace(/=w\d+-h\d+-s-no-gm/, '=s1600')}
                 alt={(iAlt ?? iAlt) as string}
                 fill={fill}
-                width={(width ?? iWidth) as any}
-                height={(height ?? iHeight) as any}
+                width={(width ?? iWidth) as number}
+                height={(height ?? iHeight) as number}
                 style={{ objectFit: 'cover' }}
                 {...restProps}
                 {...rest}

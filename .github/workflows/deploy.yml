@@ -1,19 +1,47 @@
-name: « Déploiement Vercel »
+name: CI/CD - Qualité et Déploiement
 
 on:
   push:
-    branches: [main]
 
 jobs:
-  trigger-deploy:
+  quality-checks:
+    name: 🧪 Tests de Qualité (Lint, Types, Prettier)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout du code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      - name: Configuration de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: 'npm'
+
+      - name: Installation des dépendances
+        run: npm ci
+
+      - name: Vérification du formatage (Prettier)
+        run: npm run format:check
+
+      - name: Vérification des types (TypeScript)
+        run: npx tsc --noEmit
+
+      - name: Linter (ESLint)
+        run: npm run lint
+
+  trigger-deploy:
+    name: 🚀 Déploiement Vercel
+    needs: quality-checks # Exige que les tests soient réussis avant de lancer cette étape
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' # Ne déploie que sur le main, pas sur les PRs
+    runs-on: ubuntu-latest
+    steps:
       - name: Déclenchement du Deploy Hook Vercel
         env:
           VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
         run: |
+          if [ -z "$VERCEL_DEPLOY_HOOK_URL" ]; then
+            echo "❌ Erreur: VERCEL_DEPLOY_HOOK_URL n'est pas défini dans les secrets GitHub."
+            exit 1
+          fi
           echo "🔔 Déclenchement du hook Vercel..."
-          curl --fail --silent "$VERCEL_DEPLOY_HOOK_URL"
+          curl --fail --silent -X POST "$VERCEL_DEPLOY_HOOK_URL"

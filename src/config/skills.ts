@@ -1,5 +1,6 @@
 import { type Profile } from '@/interfaces/profil';
 import { BiLogoPostgresql } from 'react-icons/bi';
+import { GrOracle } from 'react-icons/gr';
 import { DiRedis, DiRubyRough } from 'react-icons/di';
 import {
   FaAws,
@@ -42,8 +43,7 @@ import {
   SiKnexdotjs,
   SiKubernetes,
   SiMongodb,
-  SiNuxtdotjs,
-  SiOracle,
+  SiNuxt,
   SiPfsense,
   SiPostman,
   SiPrisma,
@@ -88,7 +88,7 @@ const skills = [
   { name: 'React Native', logo: TbBrandReactNative, theme: ['Frontend & UI'] },
   { name: 'Node.js', logo: FaNodeJs, theme: ['Backend & API'] },
   { name: 'Vue.js', logo: FaVuejs, theme: ['Frontend & UI'] },
-  { name: 'Nuxt.js', logo: SiNuxtdotjs, theme: ['Frontend & UI'] },
+  { name: 'Nuxt.js', logo: SiNuxt, theme: ['Frontend & UI'] },
   { name: 'Express.js', logo: SiExpress, theme: ['Backend & API'] },
   { name: 'Elysia', logo: SiExpress, theme: ['Backend & API'] },
   { name: 'Bun', logo: SiBun, theme: ['Langages de programmation', 'Backend & API'] },
@@ -121,7 +121,7 @@ const skills = [
   { name: 'Loki', logo: SiGrafana, theme: ['Infrastructure & DevOps'] },
   { name: 'Vault (HashiCorp)', logo: SiHashicorp, theme: ['Cybersécurité'] },
   { name: 'Cloudflare', logo: SiCloudflare, theme: ['Infrastructure & DevOps'] },
-  { name: 'Oracle Cloud', logo: SiOracle, theme: ['Infrastructure & DevOps'] },
+  { name: 'Oracle Cloud', logo: GrOracle, theme: ['Infrastructure & DevOps'] },
   { name: 'Trivy', logo: SiTrivy, theme: ['Cybersécurité'] },
 ] as const satisfies Profile.skill[];
 

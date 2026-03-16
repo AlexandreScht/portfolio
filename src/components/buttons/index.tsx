@@ -7,7 +7,7 @@ export default function Button({ children, disabled, isLoading, spinnerClass, sp
   return (
     <>
       <UiButton
-        color={undefined as any}
+        color={undefined}
         spinner={
           spinner ? (
             spinner
