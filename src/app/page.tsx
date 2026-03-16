@@ -29,7 +29,11 @@ export default async function Home() {
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-14 lg:gap-20 max-w-6xl m-[0_auto] px-6 lg:px-0 mt-20 md:mt-0">
           {/* Profile Image */}
           <div className="profile-image w-48 h-48 md:w-56 lg:w-64 md:h-56 lg:h-64 relative z-10 rounded-full bg-accent border-4 border-glass-border shadow-[0_10px_40px_var(--color-primary-glow)] order-1 md:order-2">
-            <InteractiveImage src="/portfolio/avatar.png" alt="profile picture" className="rounded-full" />
+            <InteractiveImage
+              src="https://lh3.googleusercontent.com/pw/AP1GczOnUIBwiSuZZrvxdnfwC57bsRP_Nbg5lAYaL5cUDLH20KnCO-EbzqPx5nmfN6xZJ6ZkkCdFmki7bFkDDDZTx_AONiLfLMXdyb2dgAfAY6gVwaMvMs4bMqfKqhsZscOI_zfVCEtthxDl5TwMdhAud7I=w987-h912-s-no-gm?authuser=0"
+              alt="profile picture"
+              className="rounded-full"
+            />
           </div>
           {/* Text Content */}
           <div className="flex-1 text-center md:text-left order-2 md:order-1">

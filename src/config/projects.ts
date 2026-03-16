@@ -9,7 +9,9 @@ const projects = [
     description:
       "Ce projet intègre une interface utilisateur intuitive permettant au client de définir ses besoins métiers et techniques. Un moteur de décision basé sur l'IA (développé en Python) analyse ces données pour recommander l'hébergement optimal (Cloud, VPS, ou Dédié) via une analyse comparative des coûts et des performances. Une fois validée, la solution est automatiquement provisionnée (Terraform), sécurisée (pfSense & Teleport Zero-Trust), et optimisée (Docker & Monitoring) pour une mise en production immédiate et résiliente.",
     link: undefined,
-    picture: ['/portfolio/hosting_automation.png'],
+    picture: [
+      'https://lh3.googleusercontent.com/pw/AP1GczMSFegWoHnmodUz-Nsu2VNKInz1CmVLHzF0ksi2KMqXrOgyb02m72gc9EUVmxNbjE1M_JoXeipbYy6BPM6tU33ElgkTMb9N45q50CKfXE678w0HYv2VxyoxmE3Yw_xBDR8f3QN7lL8lGY6HwEyrCnk=w640-h640-s-no-gm?authuser=0',
+    ],
     skills: [
       'Next.js',
       'Terraform',
@@ -52,7 +54,9 @@ const projects = [
     description:
       "Cette application transforme les données bancaires brutes (PDF, CSV, scans) en un audit financier expert. Grâce à l'IA, elle catégorise intelligemment les dépenses, anticipe les imprévus et propose des optimisations concrètes comme la fusion d'abonnements, le benchmark local de services et l'alternance de forfaits pour réduire les charges fixes.",
     link: undefined,
-    picture: undefined,
+    picture: [
+      'https://lh3.googleusercontent.com/pw/AP1GczPAHxz9vezHxrGlhQ-PCIP6NZC35tBsS9amM8AzWqJcwebxIyYoC335EXXqmoi70tVROuzs0iS2p536ByH0xwvoVSQ75w2fqNKCrzUK8qXlhIRYk0mj30iCj6DX9i9UaQ9XsMWC3ZwYDHohlNsf-RU=w1918-h912-s-no-gm',
+    ],
     skills: [
       'Oracle Cloud',
       'Next.js',
